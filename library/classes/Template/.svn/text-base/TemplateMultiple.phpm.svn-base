@@ -1,0 +1,109 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * container for holding multiple template {@link Template} instances
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class TemplateMultiple implements TemplateMultipleInterface
+{
+  /**
+   * template compiler instance
+   * @var array
+   */
+  protected $_templates = array();
+
+  /**
+   * compiled template(s)
+   * @var string
+   */
+  protected $_compiled_templates = '';
+
+  /**
+   * constructor
+   * @return void
+   */
+  public function __construct() {}
+
+  /**
+   * gets requested template instance
+   * @param $variable_name string
+   * @return Template
+   */
+  public function __get($variable_name)
+  {
+    if(!array_key_exists($variable_name, $this->_templates))
+    {
+      $this->_templates[$variable_name] = new Template();
+    }
+    return $this->_templates[$variable_name];
+  }
+
+  /**
+   * setter allows manualy instantiated Template assignment
+   * @param $variable_name string
+   * @param $value TemplateInterface
+   * @return void
+   */
+  public function __set($variable_name, TemplateInterface $value)
+  {
+    $this->_templates[(string)$variable_name] = (object)$value;
+  }
+
+  /**
+   * fetch requested templates
+   * @param $template_name string
+   * ...
+   * @return string
+   */
+  public function fetch()
+  {
+    $this->_compiled_templates = '';
+    $templates = func_get_args();
+    foreach($templates as $template_name)
+    {
+      if(array_key_exists($template_name, $this->_templates))
+      {
+        $this->_compiled_templates .= $this->_templates[$template_name]->fetch();
+      }
+    }
+    $config = array(
+      'indent' => true,
+      'output-xhtml' => true,
+      'doctype' => 'strict',
+      'wrap' => 100
+    );
+//    $Tidy = new tidy();
+//    $Tidy->parseString($this->_compiled_templates, $config, 'utf8');
+//    $Tidy->cleanRepair();
+//    $this->_compiled_templates = $Tidy;
+    return (string)$this->_compiled_templates;
+  }
+}
+?>

@@ -1,0 +1,3 @@
+<!-- $Id: _form-textarea.ptpl 168 2007-10-07 03:01:46Z rmf $ -->
+<label <? if($this->e == true) : ?>class="error" <? endif; ?>for="<?=$this->name?>"><?=$this->title?></label>
+<textarea <? if($this->e == true) : ?>class="error" <? endif; ?>rows="<?=$this->rows?>" cols="<?=$this->cols?>" name="<?=$this->name?>"><?=$this->value?></textarea><? if($this->e == true) : ?><small class="error"><?=$this->emsg?></small><? endif; ?><br />

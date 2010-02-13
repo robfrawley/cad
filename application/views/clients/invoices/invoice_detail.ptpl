@@ -1,0 +1,144 @@
+      <div id="Body" class="invoices invoice_detail">
+
+        <div class="page_headers">
+
+          <h1>Invoice: <?php echo $this->invoice_number; ?></h1>
+          <h2>Client: <?php echo $this->client; ?></h2>
+
+        </div><!-- END .page_headers -->
+
+        <div id="RightCol_Small">
+
+          <h2>Payment Options</h2>
+
+          <h3>Google Checkout</h3>
+          <p>
+            Vastly prefered by myself over any other method, Google Checkout is
+            an excellent choice when making electronic payments. It offers the
+            ability to securly pay via <em>credit or debit card</em>, as well as
+            directly from a saving or checking account. All personal information
+            is kept safe by Google and will not be transfered to any
+            <em>third-party</em> - including myself. Quick, safe, and secure;
+            I would highly recommend using this service - for the convinience of
+            both you and myself.
+          </p>
+          <form class="invoice_gcbutton"
+            action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/262110079182939"
+            id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm">
+            <input name="item_name_1" type="hidden"
+              value="Rob Frawley - Invoice <?php echo $this->invoice_number; ?>" />
+            <input name="item_description_1" type="hidden"
+              value="Invoice information available at
+              http://robfrawley.com/clients/invoices/<?php
+              echo $this->client_code; ?>/<?php
+              echo $this->invoice_number; ?>" />
+            <input name="item_quantity_1" type="hidden" value="1" />
+            <input name="item_price_1" type="hidden" value="<?php
+              echo $this->invoice_total; ?>" />
+            <input name="item_currency_1" type="hidden" value="USD" />
+            <input name="_charset_" type="hidden" value="utf-8" />
+            <input alt="" type="image"
+              src="https://checkout.google.com/buttons/buy.gif?merchant_id=262110079182939&amp;w=121&amp;h=44&amp;style=trans&amp;variant=text&amp;loc=en_US" />
+          </form>
+          <p>
+            To pay using Google Checkout, simply click the <em>Buy Now</em> link
+            above this paragraph and you will be taken to a Google Checkout page
+            where billing information can be entered and the transaction completed.
+          </p>
+
+          <h3>Check and Money Order</h3>
+          <p>
+            In my experience, a large number of people feel a nestalgic need to
+            cling to <em>old hat technology</em>, citing the need for physical
+            paper trails, etc, etc. While I would vastly prefer electronic
+            payment, checks do continue to work fine. If you are so inclined to
+            pay via check, you can do so by mailing payment to:
+          </p>
+          <address>
+            Rob Frawley<br />
+            47-1 Broadway S<br />
+            Westbrook, CT 06498
+          </address>
+          <p>
+            All checks must be made out to <em>Rob Frawley</em> and mailed with
+            transit time taken into consideration - <em>even if a check was sent
+            out prior to the invoice due date, it must arrive at my office before
+            such date to avoid late charges</em>, as described below.
+          </p>
+
+          <h2>Delinquent Account Penalties</h2>
+
+          <h3>Late Fees</h3>
+          <p>
+            Please note that my policy dictates a - generous in my opinion -
+            policy of 30 days for an invoice to be paid before it becomes
+            delinquent. Failure to pay the invoice in the time allotted will
+            result in a <em>5 dollar penalty per day late</em>!
+          </p>
+
+          <h3>Additional Check Information</h3>
+          <p>
+            As stated above, checks must be made out to <em>Rob Frawley</em>.
+            Because of the inconvenience, checks that do not follow this
+            guildline will be returned with a <em>25 dollar penalty</em>.
+          </p>
+          <p>
+            Similarly, checks that bounce will be returned with a <em>50 dollar
+            penalty</em>. It does not take much effort to confirm funds exist before
+            writing a check, and failing to do so can cause difficulties for me.
+            I appreciate your consideration.
+          </p>
+
+        </div><!-- END #RightCol_Small -->
+
+        <div id="LeftCol_Large">
+
+          <h2>Invoice Description</h2>
+          <p>
+            <?php echo $this->invoice_desc; ?>
+          </p>
+
+          <h3>Invoice Item(s) Breakdown</h3>
+          <table class="invoice_breakdown">
+            <thead>
+              <tr><td width="46%">Work Rendered</td>
+                <td width="18%">Rate</td>
+                <td width="18%">Time</td>
+                <td width="18%">Cost</td></tr>
+            </thead>
+            <tbody>
+              <?php
+              foreach($this->invoice_items as $ii)
+              {
+                echo '<tr><td>'.$ii['desc'].'</td>';
+                echo '<td>'.$ii['rate'].'</td>';
+                echo '<td>'.$ii['time'].'</td>';
+                echo '<td>$'.$ii['cost'].'</td></tr>';
+              }
+              ?>
+            </tbody>
+          </table>
+
+          <h3>Invoice Date, Status and Totals</h3>
+          <table class="invoice_totals">
+            <thead>
+              <tr><td width="23%">Posted Date</td>
+                <td width="23%">Due Date</td>
+                <td width="18%">Status</td>
+                <td width="18%">Total Time</td>
+                <td width="18%">Total Cost</td></tr>
+            </thead>
+            <tbody>
+              <tr><td><?php echo $this->invoice_date; ?></td>
+                <td><?php echo $this->invoice_late; ?></td>
+                <td><?php echo $this->invoice_state; ?></td>
+                <td><?php echo $this->invoice_time; ?></td>
+                <td>$<?php echo $this->invoice_total; ?></td></tr>
+            </tbody>
+          </table>
+
+          <h2>Comments (0)</h2>
+          <p>There are currently no comments on this invoice.</p>
+
+        </div><!-- END #LeftCol_Large -->
+      </div><!-- END #Body -->

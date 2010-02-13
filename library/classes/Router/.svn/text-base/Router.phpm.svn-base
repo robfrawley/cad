@@ -1,0 +1,197 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <moin AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * standard router implementation
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class Router extends RouterAbstract
+{
+  /**
+   * the parent constructor parses the url string
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    parent::__construct();
+  }
+
+  /**
+   * generate the current page url
+   *
+   * @return string
+   */
+  public function getThisUrl()
+  {
+    return (string)$this->getNewUrl();
+  }
+
+  public function getNewUrl($controller_name = false, $action_name = false, $peramiters = array(), $id = false)
+  {
+    $url = WEB_BASE;
+    if(ROUTER_INDEX_FILENAME !== '')
+    {
+      $url = $url . ROUTER_INDEX_FILENAME . WEB_SEP;
+    }
+
+    if($controller_name)
+    {
+      $url = $url . $controller_name . WEB_SEP;
+    }
+    else
+    {
+      $url = $url . $this->getControllerName() . WEB_SEP;
+    }
+
+    if($action_name)
+    {
+      $url = $url . $action_name . WEB_SEP;
+    }
+    else
+    {
+      $url = $url . $this->getActionName() . WEB_SEP;
+    }
+
+    if(is_array($peramiters))
+    {
+      foreach($peramiters as $index => $value)
+      {
+        if(is_int($index))
+        {
+          $url = $url . $value . WEB_SEP;
+        }
+        else
+        {
+          $url = $url . $index . WEB_SEP . $value . WEB_SEP;
+        }
+      }
+    }
+    if(!empty($id))
+    {
+      $url = $url . '#' . $id;
+    }
+    return $url;
+  }
+
+  /**
+   * parse url string for relivant routing information
+   *
+   * @return void
+   */
+  protected function _parseUrlString()
+  {
+    /* get the requested uri string */
+    $request_uri = (isset($_SERVER["REQUEST_URI"]) ? $_SERVER['REQUEST_URI'] : '');
+
+    /* check if there is a web base or index file set and add to match pattern */
+    $pattern = '';
+    if(WEB_SEP !== WEB_BASE)
+    {
+      $pattern = WEB_BASE;
+    }
+    if(ROUTER_INDEX_FILENAME !== '')
+    {
+      $pattern = $pattern . ROUTER_INDEX_FILENAME . DIR_SEP;
+    }
+
+    /* perform regular expression match on uri string */
+    $pattern = $pattern . '/[^\/]+/';
+    preg_match_all($pattern, $request_uri, $matches);
+
+    /* check for any matches */
+    if(isset($matches[0]) && sizeof($matches[0]) > 0)
+    {
+      $matches = $matches[0];
+    }
+    else
+    {
+      $matches = array();
+    }
+
+    /* check for controller and action and set to defaults if not in uri string */
+    if(isset($matches[0]) && !empty($matches[0]))
+    {
+      $this->setControllerName($this->_cleanUriString($matches[0]));
+    }
+    else
+    {
+      $this->setControllerName(ROUTER_DEFAULT_CONTROLLER);
+    }
+    if(isset($matches[1]) && !empty($matches[1]))
+    {
+      $this->setActionName($this->_cleanUriString($matches[1]));
+    }
+    else
+    {
+      $this->setActionName(ROUTER_DEFAULT_ACTION);
+    }
+
+    /* get the rest of the arguments in the uri string */
+    for($i = 2; $i < sizeof($matches); $i = $i + 2)
+    {
+      /* if the match is empty continue to next iteration */
+      if(empty($matches[$i]))
+      {
+        continue;
+      }
+
+      /* detrermine pair index and value */
+      $pair_index = $this->_cleanUriString($matches[$i]);
+      if(isset($matches[$i + 1]) && !empty($matches[$i + 1]))
+      {
+        $pair_value = $this->_cleanUriString($matches[$i + 1]);
+      }
+      else
+      {
+        $pair_value = '';
+      }
+
+      /* assign values to arguments arrays */
+      $this->_arguments[$pair_index] = $pair_value;
+      $this->_arguments_enumerated[] = $pair_index;
+      if(!empty($pair_value))
+      {
+        $this->_arguments_enumerated[] = $pair_value;
+      }
+    }
+  }
+
+  /**
+   * clean the uri string
+   *
+   * @param string $string
+   * return string
+   */
+  protected function _cleanUriString($string)
+  {
+    return (string)preg_replace('/[^a-zA-Z0-9_-]/', '', $string);
+  }
+}
+?>

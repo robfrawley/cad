@@ -1,0 +1,3 @@
+<!-- $Id$ -->
+<label <? if($this->e == true) : ?>class="error" <? endif; ?>for="<?=$this->name?>"><?=$this->title?></label>
+<input class="f_<?=$this->type?> <? if($this->e == true) : ?>error<? endif; ?>" type="<?=$this->type?>" name="<?=$this->name?>" value="<?=$this->value?>" /><? if($this->e == true) : ?><small class="error"><?=$this->emsg?></small><? endif; ?><br />

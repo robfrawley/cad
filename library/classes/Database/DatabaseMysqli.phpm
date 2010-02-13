@@ -1,0 +1,71 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: DatabaseMysqli.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * mysqli specific implementation of DatabaseAbstract {@link DatabaseAbstract}
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class DatabaseMysqli extends DatabaseAbstract
+{
+  /**
+   * the constructor calls parent constructor which sets
+   * default database connection information
+   * @return void
+   */
+  public function __construct()
+  {
+    parent::__construct();
+  }
+
+  /**
+   * mysql specific database connection implementation
+   * @return void
+   */
+  protected function _connect()
+  {
+    $this->_resource = @mysqli_connect($this->_host, $this->_user, $this->_pass, $this->_name);
+    if(is_object($this->_resource) === false)
+    {
+      throw new ExceptionDatabaseConnect();
+    }
+  }
+
+  /**
+   * instantiates mysql specific statement object
+   * and returns it
+   * @param string $query the sql query
+   * @param array $tables tables replaced into placeholders in query
+   * @return DatabaseMysqliStatament
+   */
+  protected function _getStatement($query, $tables)
+  {
+    return new DatabaseMysqliStatement($this->_resource, $query, $tables);
+  }
+}
+?>

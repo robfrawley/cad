@@ -1,0 +1,89 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * abstraction layer for file logging
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class Logger implements LoggerInterface
+{
+  /**
+   * the timestamp format
+   */
+  const format_timestamp = 'Y-m-d H:i:s';
+
+  /**
+   * the log format
+   */
+  const format_log = '[%TIMESTAMP] %MESSAGE';
+
+  /**
+   * file name of log file
+   * @var string
+   */
+  protected $_file_name = '';
+
+  /**
+   * file handle instance
+   * @var FileInterface
+   */
+  protected $_File;
+
+  /**
+   * constructor sets the log filename and instantiates file abstraction instance
+   * @param string $file_name
+   * @return void
+   */
+  public function __construct($file_name, $message = '')
+  {
+    if(LOGGING_ENABLED === true)
+    {
+      $this->_file_name = $file_name;
+      $this->_File = new File(DIR_VARIABLE . $this->_file_name);
+      if($message == '')
+      {
+        $this->log($message);
+      }
+    }
+  }
+
+  /**
+   * builds log message and writes it to file
+   * @param string $message
+   * @return void
+   */
+  public function log($message)
+  {
+    $log_message = str_replace('%TIMESTAMP', date(self::format_timestamp), self::format_log);
+    $log_message = str_replace('%MESSAGE', $message, $log_message);
+    $this->_File->openForWrite();
+    $this->_File->write($log_message);
+  }
+}
+?>

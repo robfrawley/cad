@@ -1,0 +1,54 @@
+8
+
+dir
+169
+file:///home/rmf/moin/trunk/library/classes/Logger
+file:///home/rmf/moin
+
+
+
+2007-10-07T03:01:46.083181Z
+168
+rmf
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bb78ef44-8339-0410-90eb-cd56102c149d
+
+Logger.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+3b936a760968ee61d17ad83fd6e81510
+2007-10-07T03:01:46.083181Z
+168
+rmf
+has-props
+
+LoggerInterface.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+40b6ea3e806dbc555e4f0ba3279a6b4e
+2007-10-07T03:01:46.083181Z
+168
+rmf
+has-props
+

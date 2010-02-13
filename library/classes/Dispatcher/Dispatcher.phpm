@@ -1,0 +1,227 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: Dispatcher.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * this class handles disbatching of the controller and action
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class Dispatcher implements DispatcherInterface
+{
+  /**
+   * router instance
+   * @var RouterAbstract
+   */
+  protected $_Router;
+
+  /**
+   * request instance
+   * @var RequestInterface
+   */
+  protected $_Request;
+
+  /**
+   * cache instance
+   * @var CacheAbstract
+   */
+  protected $_Cache;
+
+  /**
+   * controller instance
+   * @var ControllerAbstract
+   */
+  protected $_Controller;
+
+  /**
+   * instantiates router class
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->_Request = new Request();
+    $this->_Router = new Router();
+    $this->_Cache = new CacheMemcache($this);
+  }
+
+  public function getRouter()
+  {
+    return $this->_Router;
+  }
+
+  public function getRequest()
+  {
+    return $this->_Request;
+  }
+
+  /**
+   * instantiate requested controller, action, and template objects
+   * @return void
+   */
+  public function run()
+  {
+    if($this->_Cache->available())
+    {
+      $page_source = $this->_Cache->get();
+    }
+    else
+    {
+      $this->_loadBaseController();
+      $this->_loadController();
+      $this->_Controller->setRouter($this->_Router);
+      $this->_Controller->setRequest($this->_Request);
+      $this->_Controller->setDispatcher($this);
+      $this->_Controller->setDatabase(new DatabaseMysqli());
+      $this->_Controller->getDatabase()->setName(DB_NAME);
+      $this->_Controller->getDatabase()->setUser(DB_USER);
+      $this->_Controller->getDatabase()->setPass(DB_PASS);
+      $this->_Controller->getDatabase()->setName(DB_NAME);
+      $this->_Controller->loadTemplate();
+      $this->_Controller->actionPre();
+      $this->_runAction();
+      $this->_Controller->actionPost();
+      $page_source = $this->_Controller->fetchTemplate();
+      $this->_Cache->set($page_source);
+    }
+    echo $page_source;
+  }
+
+  /**
+   * gets cache if applicable
+   * @return mixed
+   */
+  protected function _getCache()
+  {
+    if(SYSTEM_CACHE !== true)
+    {
+      return false;
+    }
+    $page = $this->_Cache->get();
+    if($page !== false)
+    {
+      return $page;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  /**
+   * set cached page if applicable
+   * @param string $page
+   * @return void
+   */
+  protected function _setCache($page)
+  {
+    if(SYSTEM_CACHE !== true)
+    {
+      return;
+    }
+    $this->_Cache->set($page);
+  }
+
+  /**
+   * sets the controller action through Router instance {@link $_Router}
+   * @uses ROUTER_DEFAULT_ACTION
+   * @param string $action_name the name of the controller action
+   * @return void
+   */
+  public function setAction($action_name = ROUTER_DEFAULT_ACTION)
+  {
+    $this->_Router->setActionName($action_name);
+  }
+
+  /**
+   * sets the controller name through Router instance {@link $_Router}
+   * @uses ROUTER_DEFAULT_CONTROLLER
+   * @param string $controller_name the name of the controller name
+   * @return void
+   */
+  public function setController($controller_name = ROUTER_DEFAULT_CONTROLLER)
+  {
+    $this->_Router->setControllerName($controller_name);
+  }
+
+  /**
+   * check for base controller existance
+   * @return void
+   */
+  protected function _loadBaseController()
+  {
+    $controller_base_path = DIR_CONTROLLER . $this->_Router->getControllerBaseClassName() . FILE_EXT_EXEC;
+    if(file_exists($controller_base_path) && is_readable($controller_base_path) && !class_exists($this->_Router->getControllerBaseClassName(), false))
+    {
+      include_once $controller_base_path;
+    }
+  }
+
+  /**
+   * check for class file existance
+   * @return void
+   */
+  protected function _loadController()
+  {
+    $controller_path = $this->_Router->getControllerFilePath();
+    if(file_exists($controller_path) === false || is_readable($controller_path) === false)
+    {
+      throw new ExceptionControllerFile($this->_Router);
+    }
+    include_once $controller_path;
+    $controller_name = $this->_Router->getControllerClassName();
+    if(class_exists($controller_name, false) === false)
+    {
+      throw new ExceptionControllerExists($this->_Router);
+    }
+    $this->_Controller = new $controller_name;
+    if($this->_Controller instanceof ControllerAbstract === false)
+    {
+      throw new ExceptionControllerInherit($this->_Router);
+    }
+  }
+
+  /**
+   * check for action method existance and executes
+   * @return void
+   */
+  protected function _runAction()
+  {
+    $action_name = $this->_Router->getActionMethodName();
+
+    if(method_exists($this->_Controller, $action_name) === false)
+    {
+      throw new ExceptionControllerActionExists($this->_Router);
+    }
+    elseif(is_callable(array($this->_Controller, $action_name)) === false)
+    {
+      throw new ExceptionControllerActionCallable($this->_Router);
+    }
+    $this->_Controller->$action_name();
+
+  }
+}
+?>

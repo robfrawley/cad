@@ -1,0 +1,70 @@
+8
+
+dir
+169
+file:///home/rmf/moin/trunk/library/classes
+file:///home/rmf/moin
+
+
+
+2007-10-07T03:01:46.083181Z
+168
+rmf
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bb78ef44-8339-0410-90eb-cd56102c149d
+
+File
+dir
+
+Logger
+dir
+
+Router
+dir
+
+Container
+dir
+
+Cache
+dir
+
+Controller
+dir
+
+Form
+dir
+
+Database
+dir
+
+Filter
+dir
+
+Dispatcher
+dir
+
+Registry
+dir
+
+Request
+dir
+
+Template
+dir
+
+Exception
+dir
+

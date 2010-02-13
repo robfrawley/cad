@@ -1,0 +1,148 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: DatabaseStatement.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * database statement abstraction
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+abstract class DatabaseStatement
+{
+	/**
+	 * resource handle
+	 * @var resource
+	 */
+	protected $_resource;
+
+	/**
+	 * mysql result resource
+	 * @var resource
+	 */
+	protected $_result_resource;
+
+	/**
+	 * query
+	 * @var string
+	 */
+	protected $_query = '';
+
+	/**
+	 * compiled query
+	 * @var string
+	 */
+	protected $_compiled_query = '';
+
+	/**
+	 * argument bindings
+	 * @var array
+	 */
+	protected $_args = array();
+
+	/**
+	 * table bindings
+	 * @var array
+	 */
+	protected $_tables = array();
+
+	/**
+	 * sets member vars
+	 * @param resource $resource
+	 * @param string $query
+	 * @param array $tables
+	 * @return void
+	 */
+	public function __construct($resource, $query, $tables)
+	{
+		$this->_resource = $resource;
+		$this->_query = $query;
+		$this->_tables = $tables;
+		return;
+	}
+
+	/**
+	 * parse and execute query
+	 * @param array $args
+	 * @return DatabaseResult
+	 */
+	public function execute($args = array())
+	{
+		if(! is_array($args)) {
+			throw new ExceptionDatabase('arguments not an array');
+		}
+		$this->_args = $args;
+		$this->_substituteBinds();
+		//echo $this->_parsed_query;
+		return (object)$this->_executeQuery();
+	}
+
+	/**
+	 * parse query
+	 * @return void
+	 */
+	protected function _substituteBinds()
+	{
+		$query = $this->_query;
+		if(is_array($this->_tables)) {
+			foreach($this->_tables as $bind => $table) {
+				$bind = $bind + 1;
+				$query = str_replace(':T' . $bind, '`' . $table . '`', $query);
+			}
+		}
+		if(is_array($this->_args)) {
+			foreach($this->_args as $bind => $arg) {
+				$bind = $bind + 1;
+        if(is_int($arg))
+        {
+  				$query = str_replace(':A' . $bind, mysqli_escape_string($this->_resource, $arg), $query);
+        }
+        else
+        {
+  				$query = str_replace(':A' . $bind, "'" . mysqli_escape_string($this->_resource, $arg) . "'", $query);
+        }
+			}
+		}
+		$this->_parsed_query = $query;
+		return;
+	}
+
+	/**
+	 * execute query
+	 * @return Object
+	 */
+	abstract protected function _executeQuery();
+
+	abstract public function resultRow();
+	abstract public function resultAssociativeArray();
+	abstract public function resultArray();
+	abstract public function resultAllAssociativeArray();
+	abstract public function numRows();
+	abstract public function affectedRows();
+	abstract public function resultResource();
+	abstract public function insertId();
+}
+?>

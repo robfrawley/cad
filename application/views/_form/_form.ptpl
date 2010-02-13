@@ -1,0 +1,5 @@
+<!-- $Id: _form.ptpl 168 2007-10-07 03:01:46Z rmf $ -->
+<form name="<?=$this->name?>" method="<?=$this->method?>" action="<?=$this->action?>">
+	<input type="hidden" name="<?=$this->name?>" value="1" />
+	<?=$this->subitems?>
+</form>

@@ -1,0 +1,135 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * Page cache functionality
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class CacheMemcache extends CacheAbstract
+{
+  /**
+   * holds memcache instance
+   * @var Memcache
+   */
+  protected $_Memcache;
+
+  protected $_cache_data;
+
+  /**
+   * constructor takes the router and request to determine the page query
+   * @return void
+   */
+  public function __construct(DispatcherInterface $Dispatcher)
+  {
+    parent::__construct($Dispatcher);
+    $this->_connect();
+  }
+
+  public function available()
+  {
+    if(SYSTEM_CACHE !== true)
+    {
+      return false;
+    }
+    if(SYSTEM_CACHE === true && $this->getRequest()->isRequest() === true)
+    {
+      $this->_Memcache->delete($this->_buildKey());
+      return false;
+    }
+    $cache_data = $this->_Memcache->get($this->_buildKey());
+    if($cache_data === false)
+    {
+      return false;
+    }
+    $this->_cache_data = $cache_data;
+    return true;
+  }
+
+  /**
+   * get for cached page
+   * @return bool
+   */
+  public function get()
+  {    
+    if(SYSTEM_CACHE !== true)
+    {
+      return;
+    }
+    return $this->_cache_data;
+  }
+
+  /**
+   * set cached page
+   * @return void
+   */
+  public function set($string)
+  {
+    if(SYSTEM_CACHE !== true || $this->getRequest()->isRequest() === true)
+    {
+      return;
+    }
+    $this->_Memcache->set($this->_buildKey(), $string, MEMCACHE_COMPRESSED, SYSTEM_CACHE_TIME);
+  }
+
+  /**
+   * create memcache connection
+   * @return void
+   */
+  protected function _connect()
+  {
+    if(SYSTEM_CACHE !== true)
+    {
+      return;
+    }
+    $this->_Memcache = new Memcache;
+    if($this->_Memcache->connect('localhost', 11211) === false)
+    {
+      throw new ExceptionConnectMemcache();
+    }
+  }
+
+  /**
+   * builds page key and returns it
+   * @return string
+   */
+  protected function _buildKey()
+  {
+    $page[] = $this->getRouter()->getControllerName();
+    $page[] = $this->getRouter()->getActionName();
+    $arguments = $this->getRouter()->getAllArguments();
+    $page = array_merge($page, $arguments);
+    $key = 'page';
+    for($i = 0; $i < count($page); $i++)
+    {
+      $key = $key . '.' . $page[$i];
+    }
+    return $key;
+  }
+}
+?>

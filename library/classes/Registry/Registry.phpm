@@ -1,0 +1,92 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: Registry.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * registry implementation handles values through nested namespaces
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class Registry implements RegistryInterface
+{
+  /**
+   * registry items
+   * @var array
+   */
+  protected $_registry = array();
+
+  /**
+   * registry name
+   * @var string
+   */
+  protected $_registry_name = '';
+
+  /**
+   * constructor sets the registry name
+   * @param string $name
+   * @return void
+   */
+  public function __construct($name = 'Registry')
+  {
+    $this->_registry_name = $name;
+  }
+
+  /**
+   * magic getter function returns the specified branch/leaf
+   * @param string $index
+   * @return mixed
+   */
+  public function __get($index)
+  {
+    if(array_key_exists($index, $this->_registry) === false)
+    {
+      $this->_registry[$index] = new Registry($index);
+    }
+    return $this->_registry[$index];
+  }
+
+  /**
+   * magiv setter function sets the specified branch/leaf
+   * @param string $index
+   * @param string $value
+   * @return void
+   */
+  public function __set($index, $value)
+  {
+    $this->_registry[$index] = $value;
+  }
+
+  /**
+   * returns the registry name for string conversion
+   * @return string
+   */
+  public function __tostring()
+  {
+    return (string)$this->_registry_name;
+  }
+}
+?>

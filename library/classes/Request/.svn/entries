@@ -1,0 +1,54 @@
+8
+
+dir
+169
+file:///home/rmf/moin/trunk/library/classes/Request
+file:///home/rmf/moin
+
+
+
+2007-10-03T20:01:42.152796Z
+160
+robfrawley
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bb78ef44-8339-0410-90eb-cd56102c149d
+
+Request.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+1163d0a9501be583374f7849ed29e80a
+2007-10-03T20:01:42.152796Z
+160
+robfrawley
+has-props
+
+RequestInterface.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+52de67476c03c712b7f8d137a0b3a200
+2007-10-03T20:01:42.152796Z
+160
+robfrawley
+has-props
+

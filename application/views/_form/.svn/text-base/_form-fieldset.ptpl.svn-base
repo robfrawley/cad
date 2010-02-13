@@ -1,0 +1,7 @@
+<!-- $Id$ -->
+<fieldset>
+	<? if($this->isAdded('legend') === true) :  ?>
+	<legend><?=$this->legend?></legend>
+	<? endif; ?>
+	<?=$this->subitems?>
+</fieldset>

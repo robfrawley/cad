@@ -1,0 +1,405 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * single template functionality involving one file
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class Template implements TemplateInterface
+{
+  /**
+   * available paths to template files
+   * @var array
+   */
+  protected $_template_paths = array('./');
+
+  /**
+   * available template filenames
+   * @var array
+   */
+  protected $_template_filenames = array('template.php.tpl');
+
+  /**
+   * first valid path found
+   * @var string
+   */
+  protected $_template_path = '';
+
+  /**
+   * fist valid filename found
+   * @var string
+   */
+  protected $_template_filename = '';
+
+  /**
+   * functions for escaping printed text
+   * @var array
+   */
+  protected $_escape_functions = array('htmlspecialchars');
+
+  /**
+   * holds template references
+   * @var string
+   */
+  protected $_compiled_template = '';
+
+  /**
+   * template variables contained
+   * @var array
+   */
+  protected $_template_variables = array();
+
+  /**
+   * optionally sets config values
+   * @param array $config
+   * @return void
+   */
+  public function __construct(Array $config = array())
+  {
+    /* set the initial config */
+    $this->setConfig($config);
+  }
+
+  /**
+   * overloading getter method for
+   * @param string $variable
+   * @return mixed
+   */
+  public function __get($variable)
+  {
+    return $this->get($variable);
+  }
+
+  /**
+   * retrieves template vars
+   * @param string $variable
+   * @return mixed
+   */
+  public function get($variable)
+  {
+    /* check for array key matching variable */
+    if(array_key_exists($variable, $this->_template_variables))
+    {
+      /* return relivant value */
+      return $this->_template_variables[$variable];
+    }
+    else
+    {
+      /* throw exception if key was not found */
+      //throw new ExceptionTemplateGet($variable);
+    }
+  }
+
+  /**
+   * checks for variable existance
+   * @param string $variable
+   * @return boolean
+   */
+  public function isAssigned($variable)
+  {
+    if(array_key_exists($variable, $this->_template_variables))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  /**
+   * checks for variable existance
+   * @param string $variable
+   * @return boolean
+   */
+  public function isAdded($variable)
+  {
+    if(array_key_exists($variable, $this->_template_variables))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  /**
+   * overloading setter method for single template setups
+   * @param string $variable
+   * @param mixed $value
+   * @return void
+   */
+  public function __set($variable, $value)
+  {
+    /* assign new template variable value */
+    $this->_template_variables[$variable] = $value;
+  }
+
+  /**
+   * sets the config values
+   * @param array $config
+   * @return void
+   */
+  public function setConfig(Array $config)
+  {
+    /* set template paths */
+    if(isset($config['template_paths']))
+    {
+      $this->setTemplatePaths($config['template_paths']);
+    }
+    /* set template filenames */
+    if(isset($config['template_filenames']))
+    {
+      $this->setTemplateFilenames($config['template_filenames']);
+    }
+    /* set escape functions */
+    if(isset($config['escape_functions']))
+    {
+      $this->setEscapeFunctions($config['escape_functions']);
+    }
+  }
+
+  /**
+   * sets template paths
+   * @param array $template_paths
+   * @return void
+   */
+  public function setTemplatePaths(Array $template_paths)
+  {
+    /* override template paths */
+    $this->_template_paths = (array) $template_paths;
+  }
+
+  /**
+   * adds template path
+   * @param array $template_paths
+   * @return void
+   */
+  public function addTemplatePaths(Array $template_paths)
+  {
+    /* merge new template paths with current */
+    $this->_template_paths = array_merge(
+      $this->_template_paths, $template_paths
+    );
+  }
+
+  /**
+   * gets template paths
+   * @return array
+   */
+  public function getTemplatePaths()
+  {
+    /* return template paths */
+    return (array) $this->_template_paths;
+  }
+
+  /**
+   * sets template filenames
+   * @param array $template_filenames
+   * @return void
+   */
+  public function setTemplateFilenames(Array $template_filenames)
+  {
+    /* override template filenames */
+    $this->_template_filenames = $template_filenames;
+  }
+
+  /**
+   * adds template filenames
+   * @param array $template_filenames
+   * @return void
+   */
+  public function addTemplateFilenames(Array $template_filenames)
+  {
+    /* merge new template filenames with current */
+    $this->_template_filenames = array_merge(
+      $this->_template_filenames, $template_filenames
+    );
+  }
+
+  /**
+   * gets template filenames
+   * @return array
+   */
+  public function getTemplateFilenames()
+  {
+    /* returns template filenames */
+    return (array) $this->_template_filenames;
+  }
+
+  /**
+   * sets escape functions
+   * @param array $escape_functions
+   * @return void
+   */
+  public function setEscapeFunctions(Array $escape_functions)
+  {
+    /* override escape functions */
+    $this->_escape_functions = (array) $escape_functions;
+  }
+
+  /**
+   * adds an escape function
+   * @param array $escape_function
+   * @return void
+   */
+  public function addEscapeFunctions(Array $escape_functions)
+  {
+    /* merge escape functions with current */
+    $this->_escape_functions = array_merge(
+      $this->_escape_functions, (array) $escape_functions
+    );
+  }
+
+  /**
+   * gets the escape functions
+   * @return array
+   */
+  public function getEscapeFunctions()
+  {
+    /* return escape functions */
+    return (array) $this->_escape_functions;
+  }
+
+  /**
+   * assign by reference
+   * @param string $variable
+   * @param mixed $value
+   * @return void
+   */
+  public function assignByRef($variable, &$value)
+  {
+    /* make sure the variable name is a string */
+    settype($variable, 'string');
+    /* set the variable */
+    $this->_template_variables[$variable] &= $value;
+  }
+
+  /**
+   * assign by copy
+   * @param string $variable
+   * @param mixed $value
+   * @return void
+   */
+  public function assignByCopy($variable, $value)
+  {
+    /* make sure the variable name is a string */
+    settype($variable, 'string');
+    /* set the variable */
+    $this->_template_variables[$variable] = $value;
+  }
+
+  /**
+   * return compiled template
+   * @return string
+   */
+  public function fetch()
+  {
+    if(empty($this->_compiled_template))
+    {
+      $this->_compile_template();
+    }
+    return (string) $this->_compiled_template;
+  }
+
+  /**
+   * perform escape functions on paramiter
+   * @param string $value
+   * @return string
+   */
+  public function escape($value)
+  {
+    foreach($this->_escape_functions as $escape_function)
+    {
+      if(function_exists($escape_function))
+      {
+        $value = call_user_func($escape_function, $value);
+      }
+      else
+      {
+        throw new ExceptionTemplateEscapeCall($escape_function);
+      }
+    }
+    return (string) $value;
+  }
+
+  /**
+   * iterate through available paths for valid
+   * @return void
+   */
+  protected function _findValidTemplate()
+  {
+    foreach($this->_template_paths as $path)
+    {
+      if(is_dir($path))
+      {
+        foreach($this->_template_filenames as $filename)
+        {
+          if(file_exists($path . $filename) && is_readable($path . $filename))
+          {
+            $this->_template_filename = $filename;
+            $this->_template_path = $path;
+            return;
+          }
+        }
+      }
+    }
+    throw new ExceptionTemplateValidPath();
+  }
+
+  /**
+   * compile template
+   * @return void
+   */
+  protected function _compile_template()
+  {
+    /* force variable type to string */
+    settype($template_name, 'string');
+    /* find valid path and filename */
+    $this->_findValidTemplate();
+    /* star output buffering */
+    ob_start();
+    /* include template file */
+    include $this->_template_path . $this->_template_filename;
+    /* grab out put buffer */
+    $this->_compiled_template = ob_get_clean();
+    /* get script execution time */
+    $execution_time = microtime(true) - SCRIPT_START . '<br />';
+    if(SYSTEM_TIME === true)
+    {
+      $this->_compiled_template = str_replace('{%REQUEST_TIME%}', 'Page executed in ' . round($execution_time, 4) . ' seconds.', $this->_compiled_template);
+    }
+    else
+    {
+      $this->_compiled_template = str_replace('{%REQUEST_TIME%}', '', $this->_compiled_template);
+    }
+  }
+}
+?>

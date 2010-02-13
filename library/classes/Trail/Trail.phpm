@@ -1,0 +1,132 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: ControllerAbstract.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * trail class handles creating/generating a cookie trail
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class Trail implements TrailInterface
+{
+  /**
+   * trail parts
+   */
+  protected $_trail = array();
+
+  protected $_url_build = WEB_BASE;
+
+  protected $_enabled = false;
+
+  public function __construct($enabled = false)
+  {
+
+    $this->_enabled = (bool)$enabled;
+
+  }
+
+  public function isEnabled()
+  {
+
+    return (bool)$this->_enabled;
+
+  }
+
+  public function enable()
+  {
+
+    $this->_enabled = true;
+
+  }
+
+  public function disable()
+  {
+
+    $this->_enabled = false;
+
+  }
+
+  public function getTrailItems()
+  {
+
+    return $this->_trail;
+
+  }
+
+  public function addTrailItem($url, $name)
+  {
+
+    $this->_trail[] = array(WEB_BASE.$url, $name);
+
+  }
+
+  public function mapTrailItem($url, $name, $i=false)
+  {
+    $this->urlBuild($url);
+    if($i===false)
+    {
+      $this->_trail[] = array($this->_url_build, $name);
+    }
+    else
+    {
+      $this->_trail[$i] = array($this->_url_build, $name);
+    }
+
+  }
+
+  public function urlBuild($add)
+  {
+
+    $this->_url_build = $this->_url_build . $add . WEB_SEP;
+
+  }
+
+  public function mapRouter(RouterInterface $_Router)
+  {
+
+    $this->addTrailItem('', 'Home');
+
+    $controller = $_Router->getControllerName();
+    $action = $_Router->getActionName();
+
+    if($controller !== ROUTER_DEFAULT_CONTROLLER)
+    {
+
+      $this->mapTrailItem($controller, ucwords($controller));
+
+      if($action !== ROUTER_DEFAULT_ACTION)
+      {
+
+        $this->mapTrailItem($action, ucwords($action));
+
+      }
+
+    }
+
+  }
+}
+?>

@@ -1,0 +1,24 @@
+<div id="Main">
+  <div id="Main_Logo">
+    <h1>Creative Arts Guide</h1>
+    <h2>Make your Mark</h2>
+  </div>
+  <p id="Main_MS">
+    Welcome to the Creative Arts Guide: the place that embraces 
+    all of the creative arts and and those who cannot help but feel drawn 
+    to them. Artists, photographers, sculptors, writers, musicians and 
+    designers... we offer practitioners of all forms of the arts an 
+    interactive and dynamic environment. Join our community and we will 
+    provide a multitude of services; we will showcase your work, list 
+    your upcoming or ongoing exhibitions and shows, and you may even talk 
+    about your projects and discuss your thoughts on the creative process 
+    with an artistic community.
+  </p>
+  <p id="Main_Beta">
+    Welcome to the <em>Creative Arts Guide</em>. We are currently in 
+    <em>private beta</em>, but we intent to expand our testing base within 
+    the <em>next few days</em>! Check back regularly for more information, 
+    including the opportunity to be one of the <em>first to test and use</em> 
+    our new website.
+  </p>
+</div>

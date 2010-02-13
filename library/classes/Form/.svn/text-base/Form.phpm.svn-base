@@ -1,0 +1,160 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * form abstraction container
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class Form extends FormAbstract {
+	/**
+	 * form method
+	 * @var string
+	 */
+	protected $_method = '';
+
+	/**
+	 * form action
+	 * @var string
+	 */
+	protected $_action = '';
+
+	/**
+	 * instantiate class with default values
+	 * @param string $name
+	 * @param string $action
+	 * @param string $method
+	 * @return void
+	 */
+	public function __construct($name, $Router, $Request = NULL, $action = NULL, $method = NULL) {
+		$this->setName($name);
+		$this->setRouter($Router);
+    $this->setRequest($Request);
+		$this->setAction($action);
+		$this->setMethod($method);
+	}
+
+	/**
+	 * sets form action value
+	 * @param string $action
+	 * @return void
+	 */
+	public function setAction($action) {
+		if($action === NULL || empty($action)) {
+			$this->_action = $this->_Router->getNewUrl(null, null, $this->_Router->getAllArguments());
+		} else {
+			$this->_action = $action;
+		}
+	}
+
+	/**
+	 * returns form action value
+	 * @return string
+	 */
+	public function getAction() {
+		return $this->_action;
+	}
+
+	/**
+	 * sets form method value
+	 * @param string $method
+	 * @return void
+	 */
+	public function setMethod($method) {
+		switch($method) {
+			case 'get':
+				$to_set = 'get';
+				break;
+			case 'post':
+			default:
+				$to_set = 'post';
+				break;
+
+		}
+		$this->_method = $to_set;
+	}
+
+	/**
+	 * returns form method value
+	 * @return string
+	 */
+	public function getMethod() {
+		return $this->_method;
+	}
+
+	/**
+	 * validate that the form was submitted with no errors
+	 * @return bool
+	 */
+	public function ok() {
+		if($this->submitted() === false) {
+			return false;
+		}
+		if($this->validate() === false) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * was the form subbmitted?
+	 * @return bool
+	 */
+	public function submitted() {
+		$request = $this->_request->get($this->_name);
+		if(empty($request)) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * compile item data
+	 * @return void
+	 */
+	protected function _compile() {
+		$Template = new Template(array(
+      'template_paths' => array(
+        DIR_VIEWS_FORM
+      ),
+      'template_filenames' => array(
+        '_form' . FILE_EXT_TPL
+      )
+    ));
+		$Template->name = $this->getName();
+		$Template->method = $this->getMethod();
+		$Template->action = $this->getAction();
+		$subitems_html = '';
+		foreach($this->_subitems as $subitem) {
+			$subitems_html .= $subitem->get();
+		}
+		$Template->subitems = $subitems_html;
+		$this->_compiled_data = $Template->fetch();
+	}
+}
+?>

@@ -1,0 +1,292 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: ControllerAbstract.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * the abstract controller implements basic functionality
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+abstract class ControllerAbstract implements ControllerInterface
+{
+  /**
+   * router instance
+   * @var RouterInterface
+   */
+  protected $_Router;
+
+  /**
+   * request instance
+   * @var RequestInterface
+   */
+  protected $_Request;
+
+  /**
+   * dispatcher instance
+   * @var DispatcherInterface
+   */
+  protected $_Dispatcher;
+
+  /**
+   * database instance
+   * @var Database
+   */
+  protected $_Database;
+
+  /**
+   * multiple template instance
+   * @var TemplateMultipleInterface
+   */
+  protected $_Template;
+
+  /**
+   * sets the dispatcher instance {@link $_Dispatcher}
+   * @param DispatcherInterface $Dispatcher
+   */
+  public function setDispatcher(DispatcherInterface $Dispatcher)
+  {
+    $this->_Dispatcher = $Dispatcher;
+  }
+
+  /**
+   * gets the dispatcher interface {@link $_Dispatcher}
+   * @return DispatcherInterface
+   */
+  public function getDispatcher()
+  {
+    return (object)$this->_Dispatcher;
+  }
+
+  /**
+   * sets the database instance {@link $_Database}
+   * @param DatabaseAbstract
+   */
+  public function setDatabase(DatabaseAbstract $Database)
+  {
+    $this->_Database = $Database;
+  }
+
+  /**
+   * gets the database interface {@link $_Database}
+   * @return Database
+   */
+  public function getDatabase()
+  {
+    return (object)$this->_Database;
+  }
+
+  /**
+   * sets the router instance {@link $_Router}
+   * @param RouterInterface $Router
+   */
+  public function setRouter(RouterAbstract $Router)
+  {
+    $this->_Router = $Router;
+  }
+
+  /**
+   * gets the router instance {@link $_Router}
+   * @return RouterInterface
+   */
+  public function getRouter()
+  {
+    return (object)$this->_Router;
+  }
+
+  /**
+   * sets the request instance {@link $_Request}
+   * @param RequestInterface $Request
+   */
+  public function setRequest(RequestInterface $Request)
+  {
+    $this->_Request = $Request;
+  }
+
+  /**
+   * gets the request instance {@link $_Request}
+   * @return RequestInterface
+   */
+  public function getRequest()
+  {
+    return (object)$this->_Request;
+  }
+
+  public function setTemplate(TemplateInterface $Template)
+  {
+    $this->_Template = $Template;
+  }
+
+  public function getTemplate()
+  {
+    return (object)$this->_Template;
+  }
+
+  /**
+   * redirect disbatcher to new action
+   * @param string $action_name name of the action to redirect to
+   * @param bool $continue allows the script to continue after redirection
+   * @return void
+   */
+  protected function _redirectAction($action_name = ROUTER_DEFAULT_ACTION, $continue = false)
+  {
+    $_Dispatcher = new Dispatcher();
+    $_Dispatcher->setAction($action_name);
+    $_Dispatcher->run();
+    if($continue === false)
+    {
+      exit();
+    }
+  }
+
+  /**
+   * redirect disbatcher to new controller and action
+   * @param string $controller_name name of the controller to redirect to
+   * @param string $action_name name of the action to redirect to
+   * @param bool $continue allows the script to continue after redirection
+   * @return void
+   */
+  protected function _redirectController($controller_name = ROUTER_DEFAULT_CONTROLLER, $action_name = ROUTER_DEFAULT_ACTION, $continue = false)
+  {
+    $_Dispatcher = new Dispatcher();
+    $_Dispatcher->setAction($action_name);
+    $_Dispatcher->setController($controller_name);
+    $_Dispatcher->run();
+    if($continue === false)
+    {
+      exit();
+    }
+  }
+
+  /**
+   * send a header redirect
+   * @param string $controller
+   * @param string $action
+   * @param boolean $edit
+   * @param array $args
+   */
+  protected function _redirect($controller = NULL, $action = NULL, $args = array(), $append_referrer = false, $exit = true)
+  {
+    if(headers_sent() === true)
+    {
+      throw new ExceptionRedirectHeader();
+    }
+    if($append_referrer === true)
+    {
+      $append_to_args = array(
+        'referrer' => $this->_Router->getControllerName() . '-' . $this->_Router->getActionName()
+      );
+      $args = array_merge($args, $append_to_args);
+    }
+    $redirect_url = $this->_Router->generateUrl($controller, $action, $args);
+    header('Location: ' . $redirect_url);
+    if($exit === true)
+    {
+      exit();
+    }
+  }
+
+  /**
+   * setup template instances encaplsed in {@link TemplateMultiple} object
+   * @uses ROUTER_FILE_HEADER, ROUTER_FILE_BODY, ROUTER_FILE_FOOTER, FILE_EXT_TPL
+   * @return void
+   */
+  public function loadTemplate()
+  {
+    $this->_Template = new TemplateMultiple();
+    $this->_Template->header = new Template(
+      array(
+        'template_paths' => array(
+          $this->_Router->getActionViewPath(),
+          $this->_Router->getControllerViewPath(),
+          $this->_Router->getGeneralViewPath()
+        ),
+        'template_filenames' => array(
+          ROUTER_FILE_HEADER . FILE_EXT_TPL
+        ),
+        'escape_functions' => array(
+          'htmlspecialchars'
+        )
+      )
+    );
+    $this->_Template->body = new Template(
+      array(
+        'template_paths' => array(
+          $this->_Router->getActionViewPath(),
+          $this->_Router->getControllerViewPath(),
+          $this->_Router->getGeneralViewPath()
+        ),
+        'template_filenames' => array(
+          ROUTER_FILE_BODY . FILE_EXT_TPL
+        ),
+        'escape_functions' => array(
+          'htmlspecialchars'
+        )
+      )
+    );
+    $this->_Template->footer = new Template(
+      array(
+        'template_paths' => array(
+          $this->_Router->getActionViewPath(),
+          $this->_Router->getControllerViewPath(),
+          $this->_Router->getGeneralViewPath()
+        ),
+        'template_filenames' => array(
+          ROUTER_FILE_FOOTER . FILE_EXT_TPL
+        ),
+        'escape_functions' => array(
+          'htmlspecialchars'
+        )
+      )
+    );
+  }
+
+  /**
+   * fetch template parts from {@link TemplateMultiple}
+   * @return string
+   */
+  public function fetchTemplate()
+  {
+    return $this->_Template->fetch('header', 'body', 'footer');
+  }
+
+  /**
+   * function called before every action of a perticular controller
+   * @return void
+   */
+  public function actionPre()
+  {
+  }
+
+  /**
+   * function called after every action of a perticular controller
+   * @return void
+   */
+  public function actionPost()
+  {
+  }
+}
+?>

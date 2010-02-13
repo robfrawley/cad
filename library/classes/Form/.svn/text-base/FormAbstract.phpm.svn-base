@@ -1,0 +1,203 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * implements needed functionality for Form {@link Form}
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+abstract class FormAbstract {
+	/**
+	 * holds the compiled data for the form item
+	 * @var string
+	 */
+	protected $_compiled_data = '';
+
+	/**
+	 * shows if the item has been priviously compiled
+	 * @var bool
+	 */
+	protected $_compiled = false;
+
+	/**
+	 * sub items for current form item
+	 * @var array
+	 */
+	protected $_subitems = array();
+
+	/**
+	 * name of the form item
+	 * @var string
+	 */
+	protected $_name = '';
+
+	/**
+	 * request object
+	 * @var Request
+	 */
+	protected $_request;
+
+	/**
+	 * router class
+	 * @var Router_Abstract
+	 */
+	protected $_Router;
+
+	/**
+	 * retrieve sub item based on array key
+	 * @param string $key
+	 * @return Object
+	 */
+	public function __get($key) {
+		if(array_key_exists($key, $this->_subitems) === true) {
+			return $this->_subitems[$key];
+		}
+		else
+		{
+		  return (string)'';
+		}
+	}
+
+	/**
+	 * set the item name
+	 * @param string $name
+	 * @return void
+	 */
+	public function setName($name) {
+		$this->_name = $name;
+	}
+
+	/**
+	 * returns the item name
+	 * @return string
+	 * @return void
+	 */
+	public function getName() {
+		return $this->_name;
+	}
+
+	/**
+	 * sets request object
+	 * @param Request $request
+	 * @return void
+	 */
+	public function setRequest(Request $request) {
+		$this->_request = $request;
+	}
+
+	/**
+	 * sets the reouter object
+	 * @param Router_Abstract
+	 * @return void
+	 */
+	public function setRouter(RouterAbstract $Router)
+	{
+	  $this->_Router = $Router;
+	}
+
+	/**
+	 * returns request object
+	 * @return Request
+	 */
+	public function getRequest() {
+		return $this->_request;
+	}
+
+	/**
+	 * return sub items
+	 * @return array
+	 */
+	public function getSubItems() {
+		return $this->_subitems;
+	}
+
+	/**
+	 * compile and return item data
+	 * @return string
+	 */
+	public function get() {
+		if($this->_compiled !== true) {
+			$this->_compile();
+			$this->_compiled = true;
+		}
+		return $this->_compiled_data;
+	}
+
+	/**
+	 * alias for returning item data
+	 * @return string
+	 */
+	public function fetch()
+	{
+	  return $this->get();
+	}
+
+	/**
+	 * recompile regardless of previouse compile and return item data
+	 * @return string
+	 */
+	public function getNew() {
+		$this->_compiled = true;
+		return $this->_compiled_data;
+	}
+
+	/**
+	 * attaches sub item to current item
+	 * @param FormAbstract $object
+	 * @return void
+	 */
+	public function attach(FormAbstract $object) {
+		$this->_subitems[$object->getName()] = $object;
+		$object->setRequest($this->getRequest());
+		if($object instanceof FormElements && !$object instanceof FormInputSubmit) {
+			$object->fillValue();
+		}
+                return $object;
+	}
+
+	/**
+	 * validates all form elements
+	 * @return bool
+	 */
+	public function validate() {
+		$to_return = true;
+		foreach($this->getSubItems() as $subitem) {
+			if($subitem->validate() === false) {
+				$to_return = false;
+			}
+		}
+		return $to_return;
+	}
+
+	/**
+	 * handles the compilation of the item data
+	 * @return void
+	 */
+	abstract protected function _compile();
+}
+?>

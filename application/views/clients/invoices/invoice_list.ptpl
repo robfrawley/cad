@@ -1,0 +1,69 @@
+      <div id="Body" class="invoices invoice_list">
+
+        <div class="page_headers">
+
+          <h1>Invoice: Archive</h1>
+          <h2>Client: <?php echo $this->client; ?></h2>
+
+        </div><!-- END .page_headers -->
+
+        <div id="RightCol_Small">
+
+          <h2>Totals Summery</h2>
+          <p>
+            This table shows your invoice totals summery: Total Paid is the sum of
+            all PAID invoices; Total Due is the sum of all NOT PAID invoices; and
+            Total Invoiced is the sum of all invoiced items.
+          </p>
+          <table class="invoice_paid_info">
+            <thead>
+              <tr><td width="20%">Paid</td>
+                <td width="20%">Due</td>
+                <td width="20%">Invoiced</td></tr>
+            </thead>
+            <tbody>
+              <?php
+              echo '<tr><td>$'.$this->invoice_paid_info.'</td>';
+              echo '<td>$ '.$this->invoice_due_info.'</td>';
+              echo '<td>$ '.$this->invoiced_info.'</td></tr>';
+              ?>
+            </tbody>
+          </table>
+
+        </div><!-- END #RightCol_Small -->
+
+        <div id="LeftCol_Large">
+
+          <h2>Most Recent Invoices</h2>
+          <p>
+            Below is a summary listing of all invoices for <?php echo $this->client; ?>.
+            They are listed from top to bottom most recent to oldest.
+            For detailed information about a select invoice and for payment
+            instructions, click the invoice number in the left-most column
+            or the "Read More" link in the invoice descriptions.
+          </p>
+          <table class="invoice_list">
+            <thead>
+              <tr><td width="10%">Invoice</td>
+                <td width="20%">Date</td>
+                <td width="45%">Desc</td>
+                <td width="10%">Cost</td>
+                <td width="15%">Status</td></tr>
+            </thead>
+            <tbody>
+              <?php
+              foreach($this->invoices as $i)
+              {
+                echo '<tr><td><a href="'.$i['link'].'">'.$i['invoice'].'</a></td>';
+                echo '<td>'.$i['date'].'</td>';
+                echo '<td>'.$i['desc'].'</td>';
+                echo '<td>$'.$i['cost'].'</td>';
+                echo '<td>'.$i['status'].'</td></tr>';
+              }
+              ?>
+            </tbody>
+          </table>
+
+        </div><!-- END $LeftCol_Large -->
+
+      </div><!-- END #Body -->

@@ -1,0 +1,110 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: FormRestriction.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * basic restriction implementation
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+abstract class FormRestriction {
+	/**
+	 * restriction
+	 * @var string
+	 */
+	protected $_restriction = '';
+
+	/**
+	 * restriction error message
+	 * @var string
+	 */
+	protected $_message = '';
+
+	/**
+	 * construct restriction vars
+	 * @param string $restriction
+	 * @param string $message
+	 * @return void
+	 */
+	public function __construct($restriction, $message = '') {
+		$this->setRestriction($restriction);
+		$this->setMessage($message);
+	}
+
+	/**
+	 * sets message
+	 * @param string $message
+	 * @return void
+	 */
+	public function setMessage($message) {
+		$this->_message = $message;
+	}
+
+	/**
+	 * returns restriction message
+	 * @return string
+	 */
+	public function getMessage() {
+		return $this->_message;
+	}
+
+	/*
+	 * sets restriction
+	 * @param mixed $restriction
+	 * @return void
+	 */
+	public function setRestriction($restriction) {
+		$this->_restriction = $restriction;
+	}
+
+	/**
+	 * returns restriction
+	 * @return string
+	 */
+	public function getRestriction() {
+		return $this->_restriction;
+	}
+
+	/**
+	 * retrieved compiled element information
+	 * @return string
+	 */
+	public function meetsRestriction($string) {
+		if($this->_meetsRestriction($string)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * check for met restriction
+	 * @return void
+	 */
+	abstract function _meetsRestriction($string);
+}
+?>

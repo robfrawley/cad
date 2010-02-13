@@ -1,0 +1,50 @@
+<?php
+class ControllerBase extends ControllerAbstract {
+
+  protected $_Trail;
+
+  public function actionPre()
+  {
+
+    $this->_Template->header->anav = array(
+      array('Client Login', 'clients', false),
+      array('Sitemap', '', false),
+      array('Terms of Service', '', false)
+    );
+
+    $this->_Template->header->nav = array(
+      array('Home', '', false),
+      array('Portfolio', '', false),
+      array('About', '', false),
+      array('Contact', '', false)
+    );
+
+    $this->_Template->footer->fnav = array(
+      array('Home', '', false),
+      array('Portfolio', '', false),
+      array('About', '', false),
+      array('Contact', '', false),
+      array('Client Login', '', false),
+      array('Sitemap', '', false),
+      array('Terms of Service', '', false)
+    );
+
+    $this->getTemplate()->header->trail = array();
+    $this->_Trail = new Trail();
+    $this->_Trail->addTrailItem('', 'Home');
+    //$this->_Trail->mapRouter($this->_Router);
+
+  }
+
+  public function actionPost()
+  {
+
+    if($this->_Trail->isEnabled())
+    {
+      $this->getTemplate()->header->trail = $this->_Trail->getTrailItems();
+    }
+
+  }
+
+}
+?>

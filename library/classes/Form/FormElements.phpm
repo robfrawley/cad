@@ -1,0 +1,195 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: FormElements.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * implements needed functionality for form elements
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+abstract class FormElements extends FormAbstract {
+	/**
+	 * element type
+	 * @var string
+	 */
+	protected $_type = '';
+
+	/**
+	 * element display title
+	 * @var string
+	 */
+	protected $_title = '';
+
+	/**
+	 * element value
+	 * @var string
+	 */
+	protected $_value = '';
+
+	/**
+	 * error
+	 * @var bool
+	 */
+	protected $_error = false;
+
+	/**
+	 * error message
+	 * @var string
+	 */
+	protected $_error_message = '';
+
+	/**
+	 * sets element type
+	 * @param string $type
+	 * @return void
+	 */
+	public function setType($type) {
+		$this->_type = $type;
+	}
+
+	/**
+	 * returns element type
+	 * @return string
+	 */
+	public function getType() {
+		return $this->_type;
+	}
+
+	/**
+	 * sets element title
+	 * @param string $title
+	 * @return void
+	 */
+	public function setTitle($title) {
+		$this->_title = $title;
+	}
+
+	/**
+	 * returns element title
+	 * @return string
+	 */
+	public function getTitle() {
+		return $this->_title;
+	}
+
+	/**
+	 * sets element value
+	 * @param string $value
+	 * @return void
+	 */
+	public function setValue($value) {
+		$this->_value = $value;
+	}
+
+	/**
+	 * returns element value
+	 * @return string
+	 */
+	public function getValue() {
+		return $this->_value;
+	}
+
+	/**
+	 * sets error state
+	 * @param bool $error
+	 * @return void
+	 */
+	public function setError($error) {
+		$this->_error = $error;
+	}
+
+	/**
+	 * returns error state
+	 * @return bool
+	 */
+	public function getError() {
+		return $this->_error;
+	}
+
+	/**
+	 * sets error message
+	 * @param string $message
+	 * @return void
+	 */
+	public function setErrorMessage($message) {
+		$this->_error_message = $message;
+	}
+
+	/**
+	 * returns error message
+	 * @return string
+	 */
+	public function getErrorMessage() {
+		return $this->_error_message;
+	}
+
+	/**
+	 * fills value of item if possible
+	 * @return void
+	 */
+	public function fillValue() {
+		$this->setValue($this->getRequest()->get($this->_name));
+	}
+
+	/**
+	 * validation function checks requirements
+	 * @return bool
+	 */
+	public function validate() {
+		foreach($this->getSubItems() as $restriction) {
+			if($restriction->meetsRestriction($this->getValue())) {
+				continue;
+			}
+			$this->setError(true);
+			$this->setErrorMessage($restriction->getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * set error information in template
+	 * @param TemplateInterface $Template
+	 * @return void
+	 */
+	protected function _setTemplateError(TemplateInterface $Template) {
+		if($this->getError() === true) {
+		  $Template->e = true;
+		  $Template->emsg = $this->getErrorMessage();
+		}
+	}
+
+	/**
+	 * add element restrictions
+	 * @param string $restriction
+	 * @return void
+	 */
+	public function restrict(FormRestriction $restriction) {
+		$this->_subitems[] = $restriction;
+	}
+}
+?>

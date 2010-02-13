@@ -1,0 +1,54 @@
+8
+
+dir
+169
+file:///home/rmf/moin/trunk/library/classes/Cache
+file:///home/rmf/moin
+
+
+
+2007-10-07T03:01:46.083181Z
+168
+rmf
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bb78ef44-8339-0410-90eb-cd56102c149d
+
+CacheMemcache.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+5342328c51bdf549c2545232a5713045
+2007-10-07T03:01:46.083181Z
+168
+rmf
+has-props
+
+CacheAbstract.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+8c2e156c1f81891aaccce3059556783f
+2007-10-07T03:01:46.083181Z
+168
+rmf
+has-props
+

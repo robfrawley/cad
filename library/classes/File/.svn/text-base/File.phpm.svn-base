@@ -1,0 +1,155 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * file abstraction layer for reading and writing
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class File implements FileInterface
+{
+  /**
+   * mode setting for reading a file
+   */
+  const mode_read = 'r';
+
+  /**
+   * mode setting for writing a file
+   */
+  const mode_write = 'a';
+
+  /**
+   * file path to perform operations on
+   * @var string
+   */
+  protected $_file_path = '';
+
+  /**
+   * file handle for performing operations on files
+   * @var resource
+   */
+  protected $_handle;
+
+  /**
+   * sets the file path which will be operated on {@link $_file_path}
+   * @param string $file_path the file path
+   * @return void
+   */
+  public function __construct($file_path)
+  {
+    $this->_file_path = $file_path;
+  }
+
+  /**
+   * destructor closes file handle
+   * @return void
+   */
+  public function __destruct()
+  {
+    @fclose($this->_handle);
+  }
+
+  /**
+   * opens file and creates file handle
+   * @param string $mode mode setting for the file operation
+   * @return void
+   */
+  public function open($mode)
+  {
+    $this->_handle = @fopen($this->_file_path, $mode);
+    if(is_resource($this->_handle) !== true)
+    {
+      throw new ExceptionFileOpen($this->_file_path);
+    }
+  }
+
+  /**
+   * opens file in read mode
+   * @return void
+   */
+  public function openForRead()
+  {
+    $this->open(self::mode_read);
+  }
+
+  /**
+   * opens file in write mode
+   * @return void
+   */
+  public function openForWrite()
+  {
+    $this->open(self::mode_write);
+  }
+
+  /**
+   * reads contents of file and returns it
+   * @return string
+   */
+  public function read()
+  {
+    $file_contents = fgets($this->_handle, filesize($this->_file_path));
+    if($file_contents === false)
+    {
+      throw new ExceptionFileRead($this->_file_path);
+    }
+    return $file_contents;
+  }
+
+  /**
+   * read file line by line and returns it
+   * @return mixed
+   */
+  public function readLine()
+  {
+    if(feof($this->_handle))
+    {
+      return false;
+    }
+    $file_buffer = fgets($this->_handle);
+    if($file_buffer === false)
+    {
+      throw new ExceptionFileRead($this->_file_path);
+    }
+    return $file_buffer;
+  }
+
+  /**
+   * writes string to file
+   * @param string $string
+   * @return void
+   */
+  public function write($string)
+  {
+    $bytes_written = fwrite($this->_handle, $string);
+    if($bytes_written === false)
+    {
+      throw new ExceptionFileWrite($this->_file_path);
+    }
+  }
+}
+?>

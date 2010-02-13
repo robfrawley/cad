@@ -1,0 +1,6 @@
+<body>
+  <div class="internal_default">
+    <h1><?=$this->header?></h1>
+    <h2><?=$this->message?></h2>
+  </div>
+</body>

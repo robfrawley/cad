@@ -1,0 +1,297 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <moin AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: RouterAbstract.phpm 160 2007-10-03 20:01:42Z robfrawley $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * extendes by routers with different interpreters
+ *
+ * @package moin
+ * @subpackage moin-library
+ */
+abstract class RouterAbstract implements RouterInterface
+{
+  /**
+   * controller name
+   *
+   * @var string
+   */
+  protected $_controller = '';
+
+  /**
+   * action name
+   *
+   * @var string
+   */
+  protected $_action = '';
+
+  /**
+   * paired arguments
+   *
+   * @var array
+   */
+  protected $_arguments = array();
+
+  /**
+   * enumerated arguments
+   *
+   * @var array
+   */
+  protected $_arguments_enumerated = array();
+
+  /**
+   * maped enumberated arguments to strings
+   *
+   * @var array
+   */
+  protected $_arguments_enumerated_map = array();
+
+  /**
+   * constructor retrieves and parses request url
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->_parseUrlString();
+  }
+
+  /**
+   * set the controller name
+   *
+   * @param $controller_name string
+   * @return void
+   */
+  public function setControllerName($controller_name)
+  {
+    $this->_controller = $controller_name;
+  }
+
+  /**
+   * set the action name
+   *
+   * @param $action_name string
+   * @return void
+   */
+  public function setActionName($action_name)
+  {
+    $this->_action = $action_name;
+  }
+
+  /**
+   * get controller name
+   *
+   * @return string
+   */
+  public function getControllerName()
+  {
+    return (string)strtolower($this->_controller);
+  }
+
+  /**
+   * get controller class name
+   *
+   * @return string
+   */
+  public function getControllerClassName()
+  {
+    return (string)ROUTER_PREFIX_CONTROLLER . ucfirst($this->getControllerName());
+  }
+
+  /**
+   * get base controller name
+   *
+   * @return string
+   */
+  public function getControllerBaseName()
+  {
+    return (string)strtolower(ROUTER_BASE_CONTROLLER);
+  }
+
+  /**
+   * get base controller class name
+   *
+   * @return string
+   */
+  public function getControllerBaseClassName()
+  {
+    return (string)ROUTER_PREFIX_CONTROLLER . ucfirst($this->getControllerBaseName());
+  }
+
+  /**
+   * get action name
+   *
+   * @return string
+   */
+  public function getActionName()
+  {
+    return (string)strtolower($this->_action);
+  }
+
+  /**
+   * get action method name
+   * @return string
+   */
+  public function getActionMethodName()
+  {
+    return (string)ROUTER_PREFIX_ACTION . ucfirst($this->getActionName());
+  }
+
+  /**
+   * get controller path
+   *
+   * @return string
+   */
+  public function getControllerFilePath()
+  {
+    return (string)DIR_CONTROLLER . $this->getControllerClassName() . FILE_EXT_EXEC;
+  }
+
+  /**
+   * get base controller path
+   *
+   * @return string
+   */
+  public function getControllerBaseFilePath()
+  {
+    return (string)DIR_CONTROLLER . $this->getControllerBaseClassName() . FILE_EXT_EXEC;
+  }
+
+  /**
+   * get general view path
+   *
+   * @return string
+   */
+  public function getGeneralViewPath()
+  {
+    return (string)DIR_VIEWS . DIR_SEP;
+  }
+
+  /**
+   * get controller view path
+   *
+   * @return string
+   */
+  public function getControllerViewPath()
+  {
+    return (string)DIR_VIEWS . $this->getControllerName() . DIR_SEP;
+  }
+
+  /**
+   * get action view path
+   *
+   * @return string
+   */
+  public function getActionViewPath()
+  {
+    return (string)DIR_VIEWS . $this->getControllerName() . DIR_SEP . $this->getActionName() . DIR_SEP;
+  }
+
+  /**
+   * get argument by pair index
+   *
+   * @param string $string
+   * @return string|bool
+   */
+  public function getArgumentByPair($string)
+  {
+    if(array_key_exists($string, $this->_arguments))
+    {
+      return (string)$this->_arguments[$string];
+    }
+    else
+    {
+      return (bool)false;
+    }
+  }
+
+  /**
+   * get argument by integer index
+   *
+   * @param integer $integer
+   * @return string|bool
+   */
+  public function getArgumentByInt($integer)
+  {
+    if(array_key_exists($integer, $this->_arguments_enumerated))
+    {
+      return (string)$this->_arguments_enumerated[$integer];
+    }
+    else
+    {
+      return (bool)false;
+    }
+  }
+
+  /**
+   * map enumerated argument value to string index
+   *
+   * @param string $index_map
+   * @param int $index_int
+   * @return void
+   */
+  public function setArgumentByMap($index_map, $index_int)
+  {
+    if(array_key_exists($index_int, $this->_arguments_enumerated))
+    {
+      $this->_arguments_enumerated_map[$index_map] = $index_int;
+    }
+  }
+
+  /**
+   * get maped enumerated argument value
+   *
+   * @param string $index_map
+   * @return string|bool
+   */
+  public function getArgumentByMap($index_map)
+  {
+    if(array_key_exists($index_map, $this->_arguments_enumerated_map))
+    {
+      return (string)$this->_arguments_enumerated[$this->_arguments_enumerated_map[$index_map]];
+    }
+    else
+    {
+      return (bool)false;
+    }
+  }
+
+  /**
+   * get enumerated arguments array
+   *
+   * @return array
+   */
+  public function getAllArguments()
+  {
+    return (array)$this->_arguments_enumerated;
+  }
+
+  /**
+   * parse pathinfo string for controller, action, and additional arguments
+   * @return void
+   */
+  abstract protected function _parseUrlString();
+}
+?>

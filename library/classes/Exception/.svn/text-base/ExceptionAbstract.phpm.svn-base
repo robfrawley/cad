@@ -1,0 +1,144 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id$
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * base exception class enabling common functionalty
+ * within all extended exceptions
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+abstract class ExceptionAbstract extends Exception
+{
+	/**
+	 * calls parent constructor with message string to automatically
+	 * determine base {@link Exception} variables and executes logging
+	 * if logging is enabled
+	 * @param string $message error message used for display and logging
+	 * @param boolean $log_enabled enables and disables logging
+	 * @return void
+	 */
+	public function __construct($message = 'undefined error', $log_enabled = true)
+	{
+		parent::__construct($message);
+		$this->_log_enabled = (boolean)$log_enabled;
+		$this->_log();
+	}
+
+	/**
+	 * logs exception error if logging is enabled
+	 * @return void
+	 */
+	protected function _log()
+	{
+	  if($this->_log_enabled === true)
+	  {
+      $Logger = new Logger('exception.log', $this->getMessage());
+	  }
+		return;
+	}
+
+	/**
+	 * gets the exception name of the current top-level exception
+	 * @return string
+	 */
+	abstract public function getExceptionName();
+
+	/**
+	 * triggers default event for all exceptions and ends script
+	 * execution if requested
+	 * @param boolean $end_script_execution defines whether script should continue or terminate
+	 * @return void
+	 */
+	public function triggerEvent($end_script_execution = true)
+	{
+	  $this->displayErrorMessage();
+	  if($end_script_execution === true)
+	  {
+	    exit();
+	  }
+	}
+
+  /**
+   * generates and returns error page
+   * @return string
+   */
+  public function returnErrorMessage()
+  {
+    $error = <<<EOT
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Rob Frawley - A Personal Portfolio of Creative Works</title>
+  <link rel="stylesheet" href="/styles/default.css" type="text/css" />
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>Rob Frawley</h1>
+      <p>A personal portfolio of creative works</p>
+    </div>
+    <div id="navigation">
+      <ul>
+        <li><a href="/blog/">blog</a></li>
+        <li><a href="/photos/">photography</a></li>
+        <li><a href="/projects/">projects</a></li>
+        <li><a href="/music/">music</a></li>
+      </ul>
+    </div>
+    <div id="body_1c">
+      <div id="columb_1" class="error">
+          <h2>Error: {exception}</h2>
+          <p>{message}</p>
+      </div>
+      <p class="puller"></p>
+    </div>
+    <div id="footer">
+      <p id="copyright">Copyright &copy; 2007 Rob Frawley, All Rights Reserved.</p>
+      <p id="email">Contact: <a href="mailto:contact@robfrawley.com" title="Contact">contact@robfrawley.com</a></p>
+    </div>
+  </div>
+</body>
+</html>
+EOT;
+    $error = str_replace('{exception}', $this->getExceptionName(), $error);
+    $error = str_replace('{message}', 'An error occured while processing your request. ' . ucfirst($this->getMessage()) . '. If this problem persists, please contact me at contact AT robfrawley DOT com.', $error);
+    return $error;
+  }
+
+  /**
+   * gets the error mesage using {@link returnErrorMessage()} and displays it
+   * @return void
+   */
+  public function displayErrorMessage()
+  {
+    $error_text = $this->returnErrorMessage();
+    echo($error_text);
+  }
+}
+?>

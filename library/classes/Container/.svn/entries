@@ -1,0 +1,54 @@
+8
+
+dir
+169
+file:///home/rmf/moin/trunk/library/classes/Container
+file:///home/rmf/moin
+
+
+
+2007-10-07T03:01:46.083181Z
+168
+rmf
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bb78ef44-8339-0410-90eb-cd56102c149d
+
+ContainerInterface.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+5406b7a8cd42a76b3a698fd3160bcd1a
+2007-10-07T03:01:46.083181Z
+168
+rmf
+has-props
+
+ContainerDispatcher.phpm
+file
+
+
+
+
+2009-05-29T19:01:13.000000Z
+d1872389eacfcd78583efc49003e3be1
+2007-10-07T03:01:46.083181Z
+168
+rmf
+has-props
+

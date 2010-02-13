@@ -1,0 +1,10 @@
+      <div id="Body">
+
+        <h1>Invoices</h1>
+
+        <p>
+          <?php echo $this->error_msg; ?>
+          Please ensure you entered the correct URL and try again.
+        </p>
+
+      </div>

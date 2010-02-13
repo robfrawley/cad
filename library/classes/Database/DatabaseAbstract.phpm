@@ -1,0 +1,172 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: DatabaseAbstract.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * abstract database class where basic functionality is prodided for subclasses
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+abstract class DatabaseAbstract
+{
+  /**
+   * database username
+   * @var string
+   */
+  protected $_user = '';
+
+  /**
+   * database password
+   * @var string
+   */
+  protected $_pass = '';
+
+  /**
+   * database hostname
+   * @var string
+   */
+  protected $_host = '';
+
+  /**
+   * database name
+   * @var string
+   */
+  protected $_name = '';
+
+  /**
+   * database resource
+   * @var resource
+   */
+  protected $_resource;
+
+  /**
+   * database query
+   * @var string
+   */
+  protected $_query = '';
+
+  /**
+   * database query count
+   * @var int
+   */
+  protected $_query_count = 0;
+
+  /**
+   * constructor populates database connection information
+   * @uses DB_USER, DB_PASS, DB_HOST, DB_NAME
+   * @return void
+   */
+  public function __construct($user = DB_USER, $pass = DB_PASS, $host = DB_HOST, $name = DB_NAME)
+  {
+    $this->_user = $user;
+    $this->_pass = $pass;
+    $this->_host = $host;
+    $this->_name = $name;
+  }
+
+  /**
+   * sets the username {@link $_user}
+   * @param string $username database username
+   */
+  public function setUser($username)
+  {
+    $this->_user = $username;
+  }
+
+  /**
+   * sets the password {@link $_pass}
+   * @param string $password database password
+   */
+  public function setPass($password)
+  {
+    $this->_pass = $password;
+  }
+
+  /**
+   * sets the hostname {@link $_host}
+   * @param string $hostname database hostname
+   */
+  public function setHost($hostname)
+  {
+    $this->_host = $hostname;
+  }
+
+  /**
+   * sets the name {@link $_name}
+   * @param string $name database name
+   */
+  public function setName($name)
+  {
+    $this->_name = $name;
+  }
+
+  /**
+   * gets the query count {@link $_query_count}
+   * @return integer
+   */
+  public function getQueryCount()
+  {
+    return (integer)$this->_query_count;
+  }
+
+  /**
+   * handles database connection and returns new
+   * instantiated DatabaseStatement {@link DatabaseStatement}
+   * @param string $query the sql query
+   * @param array $tables tables replaced into placeholds in query
+   * @return DatabaseStatement
+   */
+  public function prepare($query, $tables = array())
+  {
+    if(is_resource($this->_resource) === false)
+    {
+      $this->_connect();
+    }
+    if(is_array($tables) === false)
+    {
+      throw Database_Exception('tables paramater was not an array');
+    }
+    $this->_query_count = $this->_query_count + 1;
+    return (object)$this->_getStatement($query, $tables);
+  }
+
+  /**
+   * creates a database connection resource
+   * @return void
+   */
+  abstract protected function _connect();
+
+  /**
+   * instantiates database specific DatabaseStatment
+   * object {@link DatabaseStatment} and returns it
+   * @param string $query the sql query
+   * @param array $tables tables replaced into placeholders in query
+   * @return DatabaseStatement
+   */
+  abstract protected function _getStatement($query, $tables);
+}
+?>

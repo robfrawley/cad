@@ -1,0 +1,7 @@
+<!-- $Id: _form-fieldset.ptpl 168 2007-10-07 03:01:46Z rmf $ -->
+<fieldset>
+	<? if($this->isAdded('legend') === true) :  ?>
+	<legend><?=$this->legend?></legend>
+	<? endif; ?>
+	<?=$this->subitems?>
+</fieldset>
