@@ -1,0 +1,48 @@
+body {
+  color:#000000;
+  text-align:center;
+  font-family:Tahoma, Arial, sans-serif;
+  background:#1a4243 url("../images/cad-1.0b_background-2.png") repeat;
+}
+
+#Main {
+  margin:100px auto;
+  width:840px;
+  border:14px solid #133132;
+  background:#ffffff;
+}
+
+#Main_Logo h1, #Main_Logo h2 {
+  display:none;
+}
+
+#Main_Logo {
+  margin:40px auto;
+  height:222px;
+  width:245px;
+  background:#ffffff url("../images/cad-1.0b_logo.jpg") no-repeat;
+}
+
+#Main_MS {
+  display:none;
+}
+
+#Main_Beta {
+  font-size:16px;
+  line-height:20px;
+  margin:40px 40px;
+}
+
+#Footer {
+  margin:40px auto;
+  width:840px;
+}
+
+#Footer p, #Footer p a {
+  color:#ffffff;
+  font-size:13px;
+}
+
+#Footer p a:hover {
+  text-decoration:none;
+}
