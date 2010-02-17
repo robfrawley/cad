@@ -58,7 +58,12 @@ define('DIR_APPLICATION', DIR_BASE . 'application' . DIR_SEP);
 /**
  * variable/temporary folder
  */
-define('DIR_VARIABLE', DIR_APPLICATION . 'variable' . DIR_SEP);
+define('DIR_DATA', DIR_APPLICATION . 'data' . DIR_SEP);
+
+/**
+ * twitter data cache dir
+ */
+define('DIR_CACHE', DIR_DATA . 'cache' . DIR_SEP);
 
 /**
  * configuration folder

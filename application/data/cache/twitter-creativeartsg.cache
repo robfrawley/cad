@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statuses type="array">
+<status>
+  <created_at>Tue Feb 16 21:35:48 +0000 2010</created_at>
+  <id>9203061100</id>
+  <text>Lovely.... watching the snowflakes outside the window.</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>42</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>36</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Tue Feb 16 16:14:23 +0000 2010</created_at>
+  <id>9190835252</id>
+  <text>Just got a preview of our new website coming soon.  It looks pretty sweet.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>42</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>35</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Fri Feb 12 22:50:30 +0000 2010</created_at>
+  <id>9029382271</id>
+  <text>@ark_projects Our pleasure</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id>8922181609</in_reply_to_status_id>
+  <in_reply_to_user_id>90420536</in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name>ark_projects</in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>41</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Fri Feb 12 22:48:49 +0000 2010</created_at>
+  <id>9029322575</id>
+  <text>#FF @escapeintolife @helenada @janeskanky @Sevenhawks @creativeartsus</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Fri Feb 12 22:40:01 +0000 2010</created_at>
+  <id>9029008774</id>
+  <text>#FF @ambermaida @grhartfordarts @tedmikulski @lisamikulski @corinadotdash @robfrawley @ark_projects</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>41</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Wed Feb 10 19:48:29 +0000 2010</created_at>
+  <id>8915914715</id>
+  <text>Everyone is locked up at home hiding from the cold...what better time to continue your creative work or start a new project? Let us know.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Wed Feb 10 03:36:10 +0000 2010</created_at>
+  <id>8885711723</id>
+  <text>What will you do tomorrow if you're snow bound?</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Tue Feb 09 21:22:46 +0000 2010</created_at>
+  <id>8871416601</id>
+  <text>RT @Art_I_Love: Next week, DiscoveredArtists.com will be unveiling a &quot;Music to Paint By&quot; series. Download a weekly mix of music to paint to.</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Tue Feb 09 21:15:32 +0000 2010</created_at>
+  <id>8871152461</id>
+  <text>Find Creative Arts Guide on Facebook . Interviews, artwork and networking http://bit.ly/cw1cnd</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Tue Feb 09 21:11:11 +0000 2010</created_at>
+  <id>8870995856</id>
+  <text>Check out Lisa's review of EO Art Lab's Flux with Michelle Demarco http://bit.ly/aes2PW &amp;lt;-- Fantastical artwork</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Tue Feb 09 21:02:56 +0000 2010</created_at>
+  <id>8870696943</id>
+  <text>Artists, are you a virtual gallery with no doors? A Social Media Guide for Artists: http://bit.ly/cnQrj8 (via @Ark_Projects)</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>41</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Feb 07 01:58:36 +0000 2010</created_at>
+  <id>8745954273</id>
+  <text>New Post at Lisa's Blog: &quot;What Writing Means to Me&quot; http://tinyurl.com/ylaxhtr</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Feb 07 01:48:37 +0000 2010</created_at>
+  <id>8745615051</id>
+  <text>@ambermaida And We Love YOU!!  Why not send us some of that fabulous art of yours and let us post it in our album.  Interview you say?  :)</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id>16682172</in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name>ambermaida</in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sat Feb 06 23:07:32 +0000 2010</created_at>
+  <id>8740140168</id>
+  <text>Enjoying a quiet evening at home.  Let the writing begin!  #amwriting</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sat Feb 06 17:17:22 +0000 2010</created_at>
+  <id>8729064509</id>
+  <text>AIGA CT presents 2 Exhibits/1Night: Creative Grab Bag and Doing Good Design for Global Change. http://tinyurl.com/yay9bzn</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Fri Feb 05 01:13:28 +0000 2010</created_at>
+  <id>8656485728</id>
+  <text>Tomorrow night, but yet another opening.  EO Art Lab, &quot;Flux&quot; works by Michelle Demarco. http://www.eoartlab.com/</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>109734995</id>
+    <name>Creative Arts Guide</name>
+    <screen_name>creativeartsg</screen_name>
+    <location>Westbrook, CT</location>
+    <description>Working to unite the varying forms of art to celebrate the relationship between the painter, the pianist, and the poet.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png</profile_image_url>
+    <url>http://creativeartsguide.com</url>
+    <protected>false</protected>
+    <followers_count>40</followers_count>
+    <profile_background_color>333333</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>50</friends_count>
+    <created_at>Sat Jan 30 02:32:04 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/71227627/whatitis.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>34</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo/>
+  <contributors/>
+</status>
+</statuses>

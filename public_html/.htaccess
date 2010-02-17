@@ -1,0 +1,5 @@
+# $Id: .htaccess 169 2007-10-07 07:05:44Z rmf $
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]

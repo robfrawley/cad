@@ -1,0 +1,127 @@
+<div id="Body">
+  <div id="ColTwo_Large">
+    <h1>Main News Feed</h1>
+    <ul id="Main_Selector" class="selector">
+      <li><p>Display:</p></li>
+      <li class="selected"><a href="/main/show/all">All</a></li>
+      <li><a href="/main/show/news">News</a></li>
+      <li><a href="/main/show/blog">Blog</a></li>
+      <li><a href="/main/show/calendar">Calendar</a></li>
+      <li><a href="/main/show/listings">Listings</a></li>
+    </ul>
+    <div class="feedPost feedNews">
+      <h2>This is a main news feed, describing the subject matter.</h2>
+      <p>
+        Those singers lent her a lot of money. They tell them a joke. Bruce 
+        granted him his wish. That car mechanic promises her a new house. 
+        That farmer buys him a present. They tell them a joke.
+      </p>
+      <p>
+        Those dentists asked him a question. They struck him a heavy blow. 
+        Luke gives him a magazine. I envied him his good fortune. 
+      </p>
+      <p>
+        They struck him a heavy blow. 
+        Luke gives him a magazine. I envied him his good fortune. I wrote her 
+        a letter. Those dentists asked him a question. They struck him a heavy 
+        blow. Luke gives him a magazine. I envied him his good fortune.
+      </p>
+      <ul class="feedRate">
+        <li><p>Rating: +6</p></li>
+        <li class="feedRateDown"><a href="/"><span>Dislike</span></a></li>
+        <li class="feedRateUp"><a href="/"><span>Like</span></a></li>
+      </ul>
+      <ul class="feedInfo">
+        <li><a href="/">21 Comments</a></li>
+        <li><p>Posted 9 hours ago</p></li>
+        <li class="feedPostType"><p>Via Main News Channel</p></li>
+      </ul>
+    </div>
+    <div class="feedPost feedNews">
+      <h2>Well here is another stupid heading to show the dynamic nature of this
+        page layout, as this header is very long</h2>
+      <p>
+        Those singers lent her a lot of money. They tell them a joke. Bruce 
+        granted him his wish. That car mechanic promises her a new house. 
+        That farmer buys him a present. They tell them a joke.
+      </p>
+      <p>
+        Those dentists asked him a question. They struck him a heavy blow. 
+        Luke gives him a magazine. I envied him his good fortune. I wrote her 
+        a letter. Those dentists asked him a question. They struck him a heavy 
+        blow. Luke gives him a magazine. I envied him his good fortune.
+      </p>
+      <ul class="feedRate">
+        <li><p>Rating: -1</p></li>
+        <li class="feedRateDown"><a href="/"><span>Dislike</span></a></li>
+        <li class="feedRateUp"><a href="/"><span>Like</span></a></li>
+      </ul>
+      <ul class="feedInfo">
+        <li><a href="/">37 Comments</a></li>
+        <li><p>Posted yesterday at 10:02am</p></li>
+        <li class="feedPostType"><p>Via Main News Channel</p></li>
+      </ul>
+    </div>
+    <div class="feedPost feedNews">
+      <h2>Something short and simple</h2>
+      <p>
+        Those singers lent her a lot of money. They tell them a joke. Bruce 
+        granted him his wish. That car mechanic promises her a new house. 
+        That farmer buys him a present. They tell them a joke.
+      </p>
+      <p>
+        Those dentists asked him a question. They struck him a heavy blow. 
+        Luke gives him a magazine. I wrote her 
+        a letter. Those dentists asked him a question. They struck him a heavy 
+        blow. Luke gives him a magazine. I envied him his good fortune.
+      </p>
+      <p>
+        That car mechanic promises her a new house.  Those dentists asked him a question. They struck him a heavy blow. 
+        Luke gives him a magazine. I wrote her 
+        a letter. Those dentists asked him a question. They struck him a heavy 
+        blow. Luke gives him a magazine. I envied him his good fortune.That car mechanic promises her a new house. 
+        That farmer buys him a present. They tell them a joke.
+      </p>
+      <p>
+        That car mechanic promises her a new house. I envied him his good fortune. 
+        That farmer buys him a present. They tell them a joke.
+      </p>
+      <ul class="feedRate">
+        <li><p>Rating: +23</p></li>
+        <li class="feedRateDown"><a href="/"><span>Dislike</span></a></li>
+        <li class="feedRateUp"><a href="/"><span>Like</span></a></li>
+      </ul>
+        <ul class="feedInfo">
+        <li><a href="/">8 Comments</a></li>
+        <li><p>Posted Jan 9 2010 at 2:09pm</p></li>
+        <li class="feedPostType"><p>Via Main News Channel</p></li>
+      </ul>
+    </div>
+  </div>
+  <div id="ColTwo_Small">
+    <h2>Interview Exert</h2>
+    <div class="boxedContent bCQuote">
+      <blockquote>
+        <p>Some short witty comment from the person being interview that catches the eye!</p>
+      </blockquote>
+      <cite>First Last</cite>
+      <p class="refLink"><a href="/interviews/1/name-of-the-interview">Read full interviewe &rarr;</a></p>
+    </div>
+    <h2>Twitter Feed</h2>
+    <div class="boxedContent bCFeedTwitter">
+      <ul>
+        <?php
+          $i=0;
+          foreach($this->twitter_posts as $post)
+          {
+            $class = (($i%2) ? 'listItemOdd' : 'listItemEven');
+            echo '<li class="'.$class.'">'."\n";
+            echo '<cite>'.$post['created'].'</cite>'."\n";
+            echo '<p>'.$post['text'].'</p>'."\n";
+            echo '</li>'."\n";
+            $i++;
+          }
+        ?>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,530 @@
+/**
+ * Creative Arts Guide
+ * Single whole-site CSS styleing stylesheet
+ *
+ * @author Rob Frawley <robfrawley@creativeartsguide.com>
+ * @license MIT Licemse
+ * @copyright 2010 Creative Arts Guide
+ * @version 1b
+ */
+ 
+/* main body def */
+
+body {
+  color:#000000;
+  font-family:Tahoma, Arial, sans-serif;
+  text-align:center;
+  background:#ffffff url("../images/cad-v1d_hdrBg.png") top repeat-x;
+}
+
+/* header def */
+
+#Header {
+  margin:0 auto;
+  width:1000px;
+  height:158px;
+  text-align:left;
+}
+
+#Header_Logo h1, #Header_Logo h2 {
+  position:absolute;
+  left:-999px;
+}
+
+#Header_Logo {
+  float:left;
+  height:156px;
+  width:234px;
+  background:#ffffff url("../images/cad-v1d_hdrLogo.png") top left no-repeat;
+}
+
+/* header user account navigation */
+
+#User_Nav {
+  float:right;
+}
+
+#User_Nav ul {
+
+}
+
+#User_Nav ul li {
+  float:left;
+  margin:.4em;
+  padding:.4em 0;
+}
+
+#User_Nav ul li p {
+  color:#6a80c1;
+  text-decoration:none;
+  font-size:.75em;
+  padding:.4em .2em; 
+}
+
+#User_Nav ul li a {
+  color:#6a80c1;
+  text-decoration:none;
+  font-size:.85em;
+  padding:.2em .6em;
+  border:1px solid #9faedb;
+  background-color:#f7f8fb;
+  
+  /* Do rounding (native in Safari, Firefox and Chrome) */
+  text-shadow: 1px 1px 1px #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+#User_Nav ul li a:hover {
+  color:#f1f3f9;
+  background-color:#6a80c1;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+/* header main site navigation */
+
+#Main_Nav {
+  clear:right;
+  float:right;
+}
+
+#Main_Nav ul {
+  padding-top:91px;
+  padding-right:.5em;
+}
+
+#Main_Nav ul li {
+  float:left;
+  margin-right:.4em;
+}
+
+#Main_Nav ul li a {
+  color:#626d92;
+  font-size:1em;
+  text-shadow: 1px 1px 1px #ffffff;
+  padding:.3em .8em;
+  padding-bottom:5px;
+  text-decoration:none;
+
+  border:2px solid #bfc9e1;
+  border-bottom-width:0px;  
+  background-color:#ffffff;
+  
+  /* Do rounding (native in Safari, Firefox and Chrome) */
+  -moz-border-radius-topright:3px;
+  -moz-border-radius-topleft:3px;
+  -webkit-border-top-right-radius:3px; 
+  -webkit-border-top-left-radius:3px;
+}
+
+#Main_Nav ul li a:hover {
+  color:#4e556c;
+  color:#000;
+}
+
+#Main_Nav ul li.selected a {
+  color:#4e556c;
+  padding-bottom:.45em;
+  text-shadow: 1px 1px 0px #eceef6;
+  border-color:#0066cc;
+
+  background-color:#ffffff;
+}
+
+/* default body look-and-feel */
+
+#Body {
+  margin:0 auto;
+  width:1004px;
+  height:500px;
+  text-align:left;
+  background:#ffffff url("../images/cad-v1d_bodyBg.png") top no-repeat;
+}
+
+#Body h1 {
+  color:#3c56a5;
+  color:#ff4c00;
+  color:#0066cc;
+  color:#003366;
+  margin:.6em 0 1.0em 0;
+  font-size:1.6em;
+}
+
+#Body h2 {
+  color:#ff4c00;
+  color:#ff6633;
+  color:#ff9900;
+  color:#663300;
+  color:#006699;
+  margin:.6em 0;
+  line-height:1.4em;
+  font-size:1.2em;  
+}
+
+#Body p {
+
+}
+
+/* columb definitions */
+
+#ColTwo_Large {
+  float:left;
+  width:620px;
+  margin:.6em 0 1.4em 2.2em;
+}
+
+#ColTwo_Small {
+  float:left;
+  width:290px;
+  margin:.6em 0 1.4em 2.2em;
+}
+
+/* horozontal selector */
+
+.selector {
+  margin:1em 0;
+  overflow:hidden;
+  border:1px solid #accfea;
+  background-color:#dce7f0;
+  
+  /* Do rounding (native in Safari, Firefox and Chrome) */
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.selector li {
+  font-size:0.8em;
+  float:left;
+  padding:.4em .4em;
+}
+
+.selector li p {
+  color:#6a80c1;
+  padding:.2em .2em .2em .6em;
+}
+
+.selector li a {
+  color:#0066cc;
+  display:block;
+  padding:.2em .6em;
+  text-decoration:none;
+  
+  /* Do rounding (native in Safari, Firefox and Chrome) */
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.selector li a:hover {
+  color:#0066cc;
+  background-color:#eff4f7;
+}
+
+.selector li.selected a {
+  color:#4e556c;
+  text-decoration:none;
+  background-color:#ffffff;
+}
+
+/* feed posts defs (general) */
+
+#Body .feedPost {
+  margin:1em 0;
+  padding-bottom:1.6em;
+  border-bottom:2px solid #accfea;
+  overflow:hidden;
+}
+
+#Body .feedPost h2 {
+  color:#2e2e4d;
+  color:#663300;
+}
+
+#Body .feedPost p {
+  color:#525270;
+  margin:1em 0;
+  text-align:justify;
+  font-size:0.9em;
+  line-height:1.2em;
+}
+
+#Body .feedPost .feedInfo {
+}
+
+#Body .feedPost .feedRate {
+  float:right;
+  text-align:right;
+}
+
+#Body .feedPost .feedInfo li,
+#Body .feedPost .feedRate li {
+  float:left;
+  line-height:0.75em;
+  font-size:0.75em;
+  margin:0;
+}
+
+#Body .feedPost .feedInfo li p,
+#Body .feedPost .feedRate li p,
+#Body .feedPost .feedInfo li a,
+#Body .feedPost .feedRate li a {
+  margin:0 !important;
+}
+
+#Body .feedPost .feedInfo li p,
+#Body .feedPost .feedRate li p {
+  
+}
+
+
+#Body .feedPost .feedInfo li a,
+#Body .feedPost .feedRate li a {
+  color:#5c6c9d;
+  color:#cc9933;
+  color:#cc6633;
+  text-decoration:none;
+}
+
+#Body .feedPost .feedInfo li a:hover {
+  text-decoration:underline;
+}
+
+#Body .feedPost .feedInfo li {
+  margin:0 .4em 0 0;
+}
+
+#Body .feedPost .feedInfo li p {
+  color:#2e2e4d;
+  color:#cc9933;
+  color:#cc6633;
+  color:#663300;
+  line-height:1em;
+  padding-left:1em;
+  background:transparent url("../images/cad-v1b_smallDotSeparator.png") left center no-repeat;
+}
+
+#Body .feedPost .feedRate li p {
+  color:#2e2e4d;
+  color:#663300;
+  padding-right:.6em;
+}
+
+#Body .feedPost .feedRate li p::after {
+  content:"";
+}
+
+#Body .feedPost .feedRate li.feedRateDown a {
+}
+
+#Body .feedPost .feedRate li.feedRateUp a {
+  padding-left:.6em;
+}
+
+#Body .feedPost .feedRate li.feedRateUp a,
+#Body .feedPost .feedRate li.feedRateDown a {
+  opacity:.5;
+}
+
+#Body .feedPost .feedRate li.feedRateUp a:hover,
+#Body .feedPost .feedRate li.feedRateDown a:hover {
+  opacity:1.0;
+}
+
+#Body .feedPost .feedRate li.feedRateUp span,
+#Body .feedPost .feedRate li.feedRateDown span {
+  color:#2e2e4d;
+  color:#663300;
+  line-height:1em;
+  padding-left:1em;
+  padding:.2em .4em;
+  border:2px solid red;
+  
+  /* Do rounding (native in Safari, Firefox and Chrome) */
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+#Body .feedPost .feedRate li.feedRateUp span {
+  border-color:green;
+}
+#Body .feedPost .feedRate li.feedRateDown span {
+  border-color:red;
+}
+
+/* main new channel specific */
+
+/* twitter specific */
+
+/* gacevook secific */
+
+/* boxed content */
+
+.boxedContent {
+  margin:1em 0em;
+  padding:.6em 0;
+  border:1px solid #e6eaf4;
+  background-color:#fcfcfd;
+  
+  /* Do rounding (native in Safari, Firefox and Chrome) */
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.boxedContent:hover {
+  border-color:#9aa5c4;
+  background-color:#fcfcfd;
+}
+
+/* boxed content quote box */
+
+.bCQuote blockquote {
+  padding:0 .8em;
+  font-size:1.2em;
+  line-height:1.6em;
+  font-family:cursive;
+}
+
+.bCQuote blockquote::before {
+  content:'"';
+}
+
+.bCQuote blockquote::after {
+  content:'"';
+}
+
+.bCQuote blockquote p {
+  display:inline;
+}
+
+.bCQuote cite {
+  float:right;
+  font-style:italic;
+  font-size:1.0em;
+  padding:.4em 1em;
+}
+
+.bCQuote cite::before {
+  content:"- ";
+}
+
+.bCQuote p.refLink {
+  clear:right;
+  margin:.2em .8em .6em 1.0em;
+}
+
+.bCQuote p.refLink a {
+  color:#8e9ac1;
+  color:#663300;
+  color:#cc6633;
+  font-size:.8em;
+}
+
+.bCQuote p.refLink a:hover {
+  text-decoration:none;
+}
+
+/* boxed content twitter feed */
+
+.bCFeedTwitter {
+  margin:0;
+  padding:0 0 0.4em 0;
+}
+
+.bCFeedTwitter ul {
+  padding:0 .6em 0 .6em;
+  font-size:0.75em;
+}
+
+.bCFeedTwitter ul li {
+  padding:.6em .6em;
+}
+
+.bCFeedTwitter ul li.listItemOdd {
+  background:#f6f7fb;
+}
+
+.bCFeedTwitter ul li cite {
+  margin:.6em 0 .6em 0;
+  display:block;
+  text-align:left;
+  color:#5c6c9d;  
+  color:#663300;
+
+  font-style:normal;
+  font-size:1em;
+  line-height:1.3em;
+}
+
+.bCFeedTwitter ul li p {
+  margin:0.6em 0;
+  text-align:left;
+  font-size:1em;
+  line-height:1.3em;
+}
+
+.bCFeedTwitter ul li p a {
+  color:#000000;
+  color:#cc6633;
+  text-decoration:none;
+  border-bottom:1px solid #cc6633;
+}
+
+.bCFeedTwitter ul li p a:hover {
+  text-decoration:none;
+  border-bottom-width:0px;
+}
+
+/*
+
+
+.bCFeedTwitter ul li p.feedComments {
+  float:right;
+  padding:0 .8em;
+  color:#5c6c9d;
+}
+
+.bCFeedTwitter ul li cite {
+  padding:0 .6em;
+  color:#5c6c9d;  
+}
+
+.bCFeedTwitter ul li h3 {
+  font-family:arial, sans-serif;
+  padding:0 .6em;
+  text-align:justify;
+  clear:right;
+  font-weight:normal;
+  font-size:1.2em;
+  line-height:1.4em;
+  margin:.2em 0 .2em 0;
+}
+
+.bCFeedTwitter ul li a.refLink {
+  text-align:right;
+  font-size:0.9em;
+  display:block;
+  margin:.6em 0;
+}*/
+
+/* footer definitions */
+
+#Footer {
+  width:100%;
+  clear:both;
+  color:#e5e9f5;
+  font-size:.75em;
+  border-top:4px solid #5c6c9d;
+  background-color:#9faedb;
+}
+
+#Footer p {
+  display:block;
+  padding:2em 1em;
+}
+
+#Footer p a {
+  color:#ffffff;
+}
+
+#Footer p a:hover {
+  text-decoration:none;
+}

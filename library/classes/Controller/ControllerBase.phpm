@@ -38,7 +38,7 @@ class ControllerBase extends ControllerAbstract {
 
   public function actionPost()
   {
-
+    return;
     if($this->_Trail->isEnabled())
     {
       $this->getTemplate()->header->trail = $this->_Trail->getTrailItems();

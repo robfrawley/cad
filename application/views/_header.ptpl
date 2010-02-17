@@ -24,9 +24,9 @@
         visual art, artists, photographers, sculptors, writers, musicians, 
         designers, interactive, dynamic, enviornment">
 
-    <link href="assets-1.0b/styles/reset-1.0b.css"
+    <link href="/assets-1b/styles/reset.css"
       rel="stylesheet" media="screen" />
-    <link href="assets-1.0b/styles/main-1.0b.css"
+    <link href="/assets-1b/styles/main.css"
       rel="stylesheet" media="screen" />
       
     <!--<script type="text/javascript" 
@@ -52,3 +52,38 @@
   </head>
 
   <body>
+    
+    <div id="Header">
+      
+      <div id="Header_Logo">
+        <h1>Creative Arts Guide</h1>
+        <h2>Make Your Make</h2>
+      </div>
+      
+      <div id="User_Nav">
+        <ul class="auth_no">
+          <li><p>Login to access your account, or create one!</p>
+          <li><a href="/logon">Logon</a></li>
+          <li><a href="/register">Register</a></li>
+        </ul>
+      </div>
+      
+      <div id="Main_Nav">
+        <ul>
+          <?php
+          foreach($this->mainNav as $index => $value) {
+            if($index == $this->mainNavSelected)
+            {
+              $class = 'selected';
+            }
+            else
+            {
+              $class = 'notSelected';
+            }
+            echo '<li class="'.$class.'"><a href="/'.$index.'">'.$value.'</a></li>';
+          }          
+          ?>
+        </ul>
+      </div>
+      
+    </div>

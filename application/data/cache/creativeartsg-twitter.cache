@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:google="http://base.google.com/ns/1.0" xml:lang="en-US" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/" xmlns="http://www.w3.org/2005/Atom" xmlns:twitter="http://api.twitter.com/">
+  <id>tag:search.twitter.com,2005:search/from:creativeartsg</id>
+  <link type="text/html" href="http://search.twitter.com/search?q=from%3Acreativeartsg" rel="alternate"/>
+  <link type="application/atom+xml" href="http://search.twitter.com/search.atom?q=from:creativeartsg&amp;rpp=10" rel="self"/>
+  <title>from:creativeartsg - Twitter Search</title>
+  <link type="application/opensearchdescription+xml" href="http://search.twitter.com/opensearch.xml" rel="search"/>
+  <link type="application/atom+xml" href="http://search.twitter.com/search.atom?q=from%3Acreativeartsg&amp;rpp=10&amp;since_id=9169834939" rel="refresh"/>
+  <twitter:warning>since_id removed for pagination.</twitter:warning>
+  <updated>2010-02-12T22:50:30Z</updated>
+  <openSearch:itemsPerPage>10</openSearch:itemsPerPage>
+  <link type="application/atom+xml" href="http://search.twitter.com/search.atom?max_id=9169834939&amp;page=2&amp;q=from%3Acreativeartsg&amp;rpp=10" rel="next"/>
+  <entry>
+    <id>tag:search.twitter.com,2005:9029382271</id>
+    <published>2010-02-12T22:50:30Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/9029382271" rel="alternate"/>
+    <title>@ark_projects Our pleasure</title>
+    <content type="html">&lt;a href=&quot;http://twitter.com/ark_projects&quot;&gt;@ark_projects&lt;/a&gt; Our pleasure</content>
+    <updated>2010-02-12T22:50:30Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:9029322575</id>
+    <published>2010-02-12T22:48:49Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/9029322575" rel="alternate"/>
+    <title>#FF @escapeintolife @helenada @janeskanky @Sevenhawks @creativeartsus</title>
+    <content type="html">&lt;a href=&quot;http://search.twitter.com/search?q=%23FF&quot;&gt;#FF&lt;/a&gt; &lt;a href=&quot;http://twitter.com/escapeintolife&quot;&gt;@escapeintolife&lt;/a&gt; &lt;a href=&quot;http://twitter.com/helenada&quot;&gt;@helenada&lt;/a&gt; &lt;a href=&quot;http://twitter.com/janeskanky&quot;&gt;@janeskanky&lt;/a&gt; &lt;a href=&quot;http://twitter.com/Sevenhawks&quot;&gt;@Sevenhawks&lt;/a&gt; &lt;a href=&quot;http://twitter.com/creativeartsus&quot;&gt;@creativeartsus&lt;/a&gt;</content>
+    <updated>2010-02-12T22:48:49Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;</twitter:source>
+    <twitter:lang>pt</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:9029008774</id>
+    <published>2010-02-12T22:40:01Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/9029008774" rel="alternate"/>
+    <title>#FF @ambermaida @grhartfordarts @tedmikulski @lisamikulski @corinadotdash @robfrawley @ark_projects</title>
+    <content type="html">&lt;a href=&quot;http://search.twitter.com/search?q=%23FF&quot;&gt;#FF&lt;/a&gt; &lt;a href=&quot;http://twitter.com/ambermaida&quot;&gt;@ambermaida&lt;/a&gt; &lt;a href=&quot;http://twitter.com/grhartfordarts&quot;&gt;@grhartfordarts&lt;/a&gt; &lt;a href=&quot;http://twitter.com/tedmikulski&quot;&gt;@tedmikulski&lt;/a&gt; &lt;a href=&quot;http://twitter.com/lisamikulski&quot;&gt;@lisamikulski&lt;/a&gt; &lt;a href=&quot;http://twitter.com/corinadotdash&quot;&gt;@corinadotdash&lt;/a&gt; &lt;a href=&quot;http://twitter.com/robfrawley&quot;&gt;@robfrawley&lt;/a&gt; &lt;a href=&quot;http://twitter.com/ark_projects&quot;&gt;@ark_projects&lt;/a&gt;</content>
+    <updated>2010-02-12T22:40:01Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:8915914715</id>
+    <published>2010-02-10T19:48:29Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/8915914715" rel="alternate"/>
+    <title>Everyone is locked up at home hiding from the cold...what better time to continue your creative work or start a new project? Let us know.</title>
+    <content type="html">Everyone is locked up at home hiding from the cold...what better time to continue your creative work or start a new project? Let us know.</content>
+    <updated>2010-02-10T19:48:29Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:8885711723</id>
+    <published>2010-02-10T03:36:10Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/8885711723" rel="alternate"/>
+    <title>What will you do tomorrow if you're snow bound?</title>
+    <content type="html">What will you do tomorrow if you&amp;apos;re snow bound?</content>
+    <updated>2010-02-10T03:36:10Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:8871416601</id>
+    <published>2010-02-09T21:22:46Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/8871416601" rel="alternate"/>
+    <title>RT @Art_I_Love: Next week, DiscoveredArtists.com will be unveiling a &quot;Music to Paint By&quot; series. Download a weekly mix of music to paint to.</title>
+    <content type="html">RT &lt;a href=&quot;http://twitter.com/Art_I_Love&quot;&gt;@Art_I_Love&lt;/a&gt;: Next week, DiscoveredArtists.com will be unveiling a &amp;quot;Music to Paint By&amp;quot; series. Download a weekly mix of music to paint to.</content>
+    <updated>2010-02-09T21:22:46Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:8871152461</id>
+    <published>2010-02-09T21:15:32Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/8871152461" rel="alternate"/>
+    <title>Find Creative Arts Guide on Facebook . Interviews, artwork and networking http://bit.ly/cw1cnd</title>
+    <content type="html">Find Creative Arts Guide on Facebook . Interviews, artwork and networking &lt;a href=&quot;http://bit.ly/cw1cnd&quot;&gt;http://bit.ly/cw1cnd&lt;/a&gt;</content>
+    <updated>2010-02-09T21:15:32Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:8870995856</id>
+    <published>2010-02-09T21:11:11Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/8870995856" rel="alternate"/>
+    <title>Check out Lisa's review of EO Art Lab's Flux with Michelle Demarco http://bit.ly/aes2PW &lt;-- Fantastical artwork</title>
+    <content type="html">Check out Lisa&amp;apos;s review of EO Art Lab&amp;apos;s Flux with Michelle Demarco &lt;a href=&quot;http://bit.ly/aes2PW&quot;&gt;http://bit.ly/aes2PW&lt;/a&gt; &amp;lt;-- Fantastical artwork</content>
+    <updated>2010-02-09T21:11:11Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:8870696943</id>
+    <published>2010-02-09T21:02:56Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/8870696943" rel="alternate"/>
+    <title>Artists, are you a virtual gallery with no doors? A Social Media Guide for Artists: http://bit.ly/cnQrj8 (via @Ark_Projects)</title>
+    <content type="html">Artists, are you a virtual gallery with no doors? A Social Media Guide for Artists: &lt;a href=&quot;http://bit.ly/cnQrj8&quot;&gt;http://bit.ly/cnQrj8&lt;/a&gt; (via &lt;a href=&quot;http://twitter.com/Ark_Projects&quot;&gt;@Ark_Projects&lt;/a&gt;)</content>
+    <updated>2010-02-09T21:02:56Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:8766682076</id>
+    <published>2010-02-07T14:55:40Z</published>
+    <link type="text/html" href="http://twitter.com/creativeartsg/statuses/8766682076" rel="alternate"/>
+    <title>RT @nicknsteel: Artists Encase Abandoned Detroit Home in Ice to Draw Attention to ... http://bit.ly/bHx2WW</title>
+    <content type="html">RT &lt;a href=&quot;http://twitter.com/nicknsteel&quot;&gt;@nicknsteel&lt;/a&gt;: Artists Encase Abandoned Detroit Home in Ice to Draw Attention to ... &lt;a href=&quot;http://bit.ly/bHx2WW&quot;&gt;http://bit.ly/bHx2WW&lt;/a&gt;</content>
+    <updated>2010-02-07T14:55:40Z</updated>
+    <link type="image/png" href="http://a1.twimg.com/profile_images/666240848/markyourmark_normal.png" rel="image"/>
+    <twitter:geo>
+    </twitter:geo>
+    <twitter:source>&lt;a href=&quot;http://twitterfeed.com&quot; rel=&quot;nofollow&quot;&gt;twitterfeed&lt;/a&gt;</twitter:source>
+    <twitter:lang>en</twitter:lang>
+    <author>
+      <name>creativeartsg (Creative Arts Guide)</name>
+      <uri>http://twitter.com/creativeartsg</uri>
+    </author>
+  </entry>
+</feed>

@@ -201,7 +201,7 @@ abstract class ControllerAbstract implements ControllerInterface
       );
       $args = array_merge($args, $append_to_args);
     }
-    $redirect_url = $this->_Router->generateUrl($controller, $action, $args);
+    $redirect_url = $this->_Router->getNewUrl($controller, $action, $args);
     header('Location: ' . $redirect_url);
     if($exit === true)
     {

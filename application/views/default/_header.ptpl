@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd"
+     xml:lang="en" >
+
+  <head>
+
+    <title>Creative Arts Guide</title>
+
+    <meta name="description" 
+      content="Welcome to the Creative Arts Guide: the place that embraces 
+        all of the creative arts and and those who cannot help but feel drawn 
+        to them. Artists, photographers, sculptors, writers, musicians and 
+        designers... we offer practitioners of all forms of the arts an 
+        interactive and dynamic environment. Join our community and we will 
+        provide a multitude of services; we will showcase your work, list 
+        your upcoming or ongoing exhibitions and shows, and you may even talk 
+        about your projects and discuss your thoughts on the creative process 
+        with an artistic community.">
+    <meta name="keywords"
+      content="creative arts guide, the creative arts guide, make your mark,
+        visual art, artists, photographers, sculptors, writers, musicians, 
+        designers, interactive, dynamic, enviornment">
+
+    <link href="assets-1.0b/styles/reset-1.0b.css"
+      rel="stylesheet" media="screen" />
+    <link href="assets-1.0b/styles/main-1.0b.css"
+      rel="stylesheet" media="screen" />
+      
+    <!--<script type="text/javascript" 
+      src="assets/javascript/mootools-1.2.4-core-nc.js"></script>
+    <script type="text/javascript" 
+      src="assets/javascript/mootools-1.2.4.2-more.js"></script>
+    <script type="text/javascript" 
+      src="assets/javascript/main.js"></script>-->
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-12717025-1");
+        pageTracker._trackPageview();
+      } 
+      catch(err) {
+      }
+    </script>
+    
+  </head>
+
+  <body>
