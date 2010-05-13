@@ -25,6 +25,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+/* very basic session management at this point */
+session_start();
+
 /* get the start time of the php script execution */
 define('SCRIPT_START', microtime(true));
 
@@ -32,13 +35,17 @@ define('SCRIPT_START', microtime(true));
 include '../application/config/paths.php';
 
 /* include general config file */
-include DIR_CONFIG . 'general.php';
+include DIR_CONFIG . 'general.live.php';
 
 /* include database config file */
-include DIR_CONFIG . 'database.php';
+include DIR_CONFIG . 'database.live.php';
+
+/* include api auth config file */
+include DIR_CONFIG . 'api_auths.live.php';
 
 /* include functions file */
 include DIR_FUNCTIONS . 'general.php';
+
 
 /* set error reporting */
 error_reporting(SYSTEM_ERRORLEVEL);

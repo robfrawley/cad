@@ -110,7 +110,7 @@ abstract class DatabaseStatement
 		if(is_array($this->_tables)) {
 			foreach($this->_tables as $bind => $table) {
 				$bind = $bind + 1;
-				$query = str_replace(':T' . $bind, '`' . $table . '`', $query);
+				$query = str_replace(':T' . $bind, $table, $query);
 			}
 		}
 		if(is_array($this->_args)) {
@@ -127,6 +127,8 @@ abstract class DatabaseStatement
 			}
 		}
 		$this->_parsed_query = $query;
+		//echo $query;
+
 		return;
 	}
 

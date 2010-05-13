@@ -98,5 +98,5 @@ define('SYSTEM_CACHE_TIME', 3600);
 /**
  * display system time
  */
-define('SYSTEM_TIME', false);
+define('SYSTEM_TIME', true);
 ?>

@@ -1,0 +1,24 @@
+<!-- $Id: _form-note.ptpl 168 2007-10-07 03:01:46Z rmf $ -->
+<div class="formNote <?=$this->notePosition?>">
+  <?php
+  for($i=0; $i<sizeof($this->noteContent); $i++) 
+  {
+    if($this->noteTitle[$i] !== false && !empty($this->noteTitle[$i]))
+    {
+      echo '<h3>'.$this->noteTitle[$i].'</h3>';
+    }
+    
+    if(is_array($this->noteContent[$i]))
+    {
+      for($j=0; $j<sizeof($this->noteContent[$i]); $j++)
+      {
+        echo '<p>'.$this->noteContent[$i][$j].'</p>';      
+      }
+    }
+    else
+    {
+      echo '<p>'.$this->noteContent[$i].'</p>';
+    }
+  }
+  ?>
+</div>

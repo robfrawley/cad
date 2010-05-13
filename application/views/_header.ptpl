@@ -24,9 +24,9 @@
         visual art, artists, photographers, sculptors, writers, musicians, 
         designers, interactive, dynamic, enviornment">
 
-    <link href="/assets-1b/styles/reset.css"
+    <link href="/assets-1c/styles/reset.css"
       rel="stylesheet" media="screen" />
-    <link href="/assets-1b/styles/main.css"
+    <link href="/assets-1c/styles/main.css"
       rel="stylesheet" media="screen" />
       
     <!--<script type="text/javascript" 
@@ -53,6 +53,8 @@
 
   <body>
     
+  <div id="Wrapper">
+    
     <div id="Header">
       
       <div id="Header_Logo">
@@ -60,30 +62,45 @@
         <h2>Make Your Make</h2>
       </div>
       
-      <div id="User_Nav">
-        <ul class="auth_no">
-          <li><p>Login to access your account, or create one!</p>
-          <li><a href="/logon">Logon</a></li>
+      <div id="Header_NavUser">
+        <ul>
+        <?php
+            $session = $this->session;
+            if(!isset($session['id']))
+            {
+            ?>
+          <li><p>Log into you account, or create one!</p>
+          <li><a href="/login">Login</a></li>
           <li><a href="/register">Register</a></li>
+            <?php
+            }
+            else
+            {
+                echo '<li><p>Welcome, '.$session['fullname'].'!</p></li>';
+                ?>
+                <li><a href="/user">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <?php
+            }
+          ?>
         </ul>
       </div>
       
-      <div id="Main_Nav">
+      <div id="Header_NavMain">
         <ul>
           <?php
           foreach($this->mainNav as $index => $value) {
             if($index == $this->mainNavSelected)
             {
-              $class = 'selected';
+              $class = 'selected navMain'.ucwords($index);
             }
             else
             {
-              $class = 'notSelected';
+              $class = 'notSelected navMain'.ucwords($index);
             }
-            echo '<li class="'.$class.'"><a href="/'.$index.'">'.$value.'</a></li>';
+            echo '<li class="'.$class.'"><a href="/'.$index.'">'.$value.'</a></li>'."\n";
           }          
           ?>
         </ul>
       </div>
-      
     </div>

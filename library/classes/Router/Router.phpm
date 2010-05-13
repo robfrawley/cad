@@ -97,7 +97,7 @@ class Router extends RouterAbstract
     {
       $url = $url . '#' . $id;
     }
-    return $url;
+    return WEB_DOMAIN.$url;
   }
 
   /**

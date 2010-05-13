@@ -1,0 +1,12 @@
+<?php
+
+class HtmlMessageError extends HtmlMessage
+{
+    public function __construct($title, $message)
+    {
+        parent::__construct($title, $message);
+        $this->addClass('htmlMessageError');
+    }
+}
+
+?>

@@ -53,4 +53,15 @@ function __autoload($class_name)
     die('Included file ' . $class_path . ' does not contain a declaration for required class ' . $class_name . '.');
   }
 }
+
+function array_merge_keys(){
+    $args = func_get_args();
+    $result = array();
+    foreach($args as &$array){
+        foreach($array as $key=>&$value){
+            $result[$key] = $value;
+        }
+    }
+    return $result;
+}
 ?>

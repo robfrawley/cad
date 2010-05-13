@@ -1,0 +1,76 @@
+<?php
+
+class HtmlMessage extends Html
+{
+    protected $_message;
+    
+    protected $_header;
+    
+    protected $_classes = array();
+    
+    public function __construct($title, $message)
+    {
+        $this->setMessage($message);
+        $this->setHeader($title);
+        
+        parent::__construct('message');
+    }
+    
+    public function setMessage($message)
+    {
+        $this->_message = $message;
+    }
+    
+    public function getMessage()
+    {
+        return $this->_message;
+    }
+    
+    public function setHeader($header)
+    {
+        $this->_header = $header;
+    }
+    
+    public function getHeader()
+    {
+        return $this->_header;
+    }
+    
+    public function addClass($class)
+    {
+        array_push($this->_classes, $class);
+    }
+    
+    public function getClasses()
+    {
+        return $this->_classes;
+    }
+    
+    protected function _compile()
+    {
+        $this->_templateCompiled = true;
+
+        $classArray = $this->getClasses();
+        $classes = '';
+        for($i=0; $i<sizeof($classArray); $i++)
+        {
+            $classes .= ' '.$classArray[$i];
+        }
+
+      	$Template = new Template(array(
+            'template_paths' => array(
+                DIR_VIEWS_INTERNAL
+            ),
+            'template_filenames' => array(
+                $this->getTemplateFilename() . FILE_EXT_TPL
+            )
+        ));
+
+        $Template->classes = $classes;
+        $Template->header = $this->_header;
+        $Template->message = $this->_message;
+		$this->_compiledData = $Template->fetch();
+    }
+}
+
+?>

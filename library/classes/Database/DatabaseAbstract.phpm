@@ -148,7 +148,7 @@ abstract class DatabaseAbstract
     }
     if(is_array($tables) === false)
     {
-      throw Database_Exception('tables paramater was not an array');
+      throw Database_Exception('tables parameter was not an array');
     }
     $this->_query_count = $this->_query_count + 1;
     return (object)$this->_getStatement($query, $tables);

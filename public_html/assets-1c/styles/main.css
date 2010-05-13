@@ -1,0 +1,637 @@
+/**
+ * Creative Arts Guide
+ * Single whole-site CSS styleing stylesheet
+ *
+ * @author Rob Frawley <robfrawley@creativeartsguide.com>
+ * @license MIT Licemse
+ * @copyright 2010 Creative Arts Guide
+ * @version 1c
+ */
+
+/***
+ **
+ ** body and #Wrapper definitions
+ **
+ **/
+
+body
+{
+  color:#000000;
+  font-family:Tahoma, Arial, sans-serif;
+  background:#ffffff url("../images/cad_7bodyTopSpanBg.png") top center repeat-x;
+}
+
+body
+{
+  /* !IE hack for lack of margin:auto support */
+  text-align:center;
+}
+
+#Wrapper 
+{
+  margin:0 auto;
+  width:1128px;
+  background:#ffffff url("../images/cad_4headerBg.png") top no-repeat;
+}
+
+#Wrapper
+{
+  /* !IE fix to re-fix the fix above...microsoft, really? */
+  text-align:left;
+}
+
+
+/**
+ **
+ ** #Header main div container
+ **
+ **/
+
+#Header
+{
+  position:relative;
+  margin:0 0px;
+  height:160px;
+}
+
+#Header_Logo
+{
+  position:absolute;
+  left:-999px;
+}
+
+
+/**
+ **
+ ** #Header_Nav definitions for user account nav and main site nav
+ **
+ **/
+
+#Header_NavUser ul,
+#Header_NavMain ul
+{
+  overflow:hidden;
+}
+
+#Header_NavUser ul li,
+#Header_NavMain ul li
+{
+  float:left;
+}
+
+#Header_NavUser
+{
+  position:absolute;
+  top:0px;
+  right:62px;
+  padding:0 0 0 .75em;
+  border:1px solid #ecede4;
+  background-color:#ffffff;
+  font-size:.8em;
+  line-height:2em;
+  
+  /* css3 rounded corners for firefox/webkit browsers 
+  -moz-border-radius-bottomright:4px;
+  -moz-border-radius-bottomleft:4px;
+  -webkit-border-bottom-right-radius:4px; 
+  -webkit-border-bottom-left-radius:4px;*/
+}
+
+#Header_NavUser ul
+{
+  padding:0 .5em;
+}
+
+#Header_NavUser ul li,
+#Header_NavUser ul li a
+{
+  display:block;
+  color:#663300;
+}
+
+#Header_NavUser ul li p
+{
+  color:#994c00;
+  padding-right:1em;
+}
+
+#Header_NavUser ul li a
+{
+  padding:0 1em;
+  text-decoration:underline;
+}
+
+#Header_NavUser ul li a:hover,
+#Header_NavUser ul li a:focus
+{
+  text-decoration:none;
+}
+
+#Header_NavMain
+{
+  position:absolute;
+  bottom:0px;
+  right:62px;
+  font-size:1.2em;
+  line-height:54px;
+}
+
+#Header_NavMain ul li,
+#Header_NavMain ul li a
+{
+  display:block;
+  color:#4b68b1;
+}
+
+#Header_NavMain ul li
+{
+  padding:0 .5em 0 0;
+}
+
+#Header_NavMain ul li a
+{
+  color:#1c2161;
+  padding:0 .5em;
+  text-decoration:none;
+}
+
+#Header_NavMain ul li a:hover
+{
+  color:#1d4919;
+}
+
+#Header_NavMain ul li.selected a
+{
+  color:#1d4919;
+  border:2px solid #00459c;
+  border-bottom-width:0px;
+  background-color:#ffffff;
+}
+
+/* columb definitions */
+
+#ColTwo_Large {
+  float:left;
+  width:620px;
+  margin:.6em 0 1.4em 2.2em;
+}
+
+#ColTwo_Small {
+  float:left;
+  width:290px;
+  margin:1em 0 1.4em 2.2em;
+}
+
+#ColOne {
+  margin:1.6em 2.2em 1.4em 2.2em;
+}
+
+/**
+ **
+ ** #Body container definitions
+ **
+ **/
+ 
+ /* default body look-and-feel */
+
+#Body {
+  margin:0 auto;
+  width:1004px;
+  height:600px;
+  text-align:left;
+  //background:#ffffff url("../images/cad-v1d_bodyBg.png") top no-repeat;
+}
+
+#Body h1 {
+  color:#3c56a5;
+  color:#ff4c00;
+  color:#0066cc;
+  color:#003366;
+  margin:.6em 0 1.0em 0;
+  font-size:1.6em;
+}
+
+#Body h2 {
+  color:#ff4c00;
+  color:#ff6633;
+  color:#ff9900;
+  color:#663300;
+  color:#006699;
+  margin:.6em 0 1.0em 0;
+  line-height:1.4em;
+  font-size:1.2em;  
+}
+
+#Body p {
+
+}
+
+#Body a {
+  color:#663300;
+  text-decoration:none;
+  border-bottom:1px solid;
+}
+
+#Body a:hover,
+#Body a:focus {
+  border-bottom-width:0px;
+}
+
+/**
+ * LOGON PAGE
+ */
+ 
+ 
+/**
+ * GENERAL DEFINITIONS FOR ALL FORMS
+ */
+form {
+    display:block;
+    width:900px;
+    padding:10px;
+    border:1px dotted #6c3211;
+    border-left-width:5px;
+    border-left-style:solid;
+    background-color:#f3f4f9;
+}
+
+form fieldset {
+    padding:20px;
+    background:#ffffff;
+}
+
+form legend {
+    display:none;
+}
+
+form label {
+    display:block;
+    margin:10px 0 0 0;
+}
+
+form label.f_text::after,
+form label.f_password::after {
+    content:":";
+}
+
+form input.f_text,
+form input.f_password {
+    margin:10px 0;
+    padding:4px;
+    width:280px;
+    border:1px solid #999999;
+}
+
+form input.f_text:hover,
+form input.f_password:hover,
+form input.f_text:focus,
+form input.f_password:focus {
+    border-color:#333333;
+}
+
+form input.f_submit {
+    margin:10px 0;
+    padding:8px 24px;
+    border:1px solid #333333;
+    cursor:pointer;
+    color:#00459c;
+    background-color:#ffffff;
+}
+
+form input.f_submit:hover,
+form input.f_submit:focus {
+    color:#ffffff;
+    background-color:#00459c;
+}
+
+form input.error {
+    border-color:red;
+}
+
+form small.error {
+    text-align:left;
+    color:red;
+    float:right;
+    width:300px;
+    padding:3px 30px 6px 14px;
+    margin:12px 0 0 0;
+    font-weight:bold;
+    font-size:11px;
+    line-height:14px;
+    /*background:transparent url('../images/icon_error-26x26.png') no-repeat center right;*/
+}
+
+form div.formNote {
+  font-family:Arial, sans-serif;
+  text-align:justify;
+}
+
+form div.formNoteNormal {
+  margin:10px 0 20px 0;
+  width:580px;
+  font-size:12px;
+}
+
+form div.formNoteRight {
+  padding:2px 12px 8px 12px;  
+  float:right;
+  width:200px;
+  border:1px solid #6c3211;
+  font-size:12px;
+}
+
+form div.formNote h3 {
+  margin:12px 0 6px 0;
+  padding-bottom:2px;
+  font-weight:bold;
+  border-bottom:1px dotted #000000;
+}
+
+form div.formNote p {
+  margin:6px 0;
+  line-height:14px;
+}
+
+/**
+ * INTERNAL HTML for the MOIN FRAMEWORK
+ */
+
+.htmlMessage {
+  padding:10px;
+  border:1px dotted #000000;
+  border-left-style:solid;
+  border-left-width:5px;
+  background-color:#ffffff;
+}
+
+.htmlMessage div {
+  overflow:hidden;
+  padding:12px;
+  background-color:#ffffff;
+}
+
+.htmlMessage div h3 {
+  float:left;
+  width:120px;
+  padding:12px;
+  font-size:18px;
+  line-height:22px;
+  font-weight:bold;
+  padding-bottom:2px;
+  border-bottom:1px dotted #000000;
+}
+
+.htmlMessage div p {
+  float:right;
+  width:680px;
+  padding:8px 0;
+  font-size:16px;
+  line-height:20px;
+}
+
+.htmlMessageSuccess {
+  border-color:#88bf3d;
+  background-color:#ecf4e1;
+}
+
+.htmlMessageError {
+  border-color:#b53619;
+  background-color:#f4eae8;
+}
+
+/* horozontal selector */
+
+.selector {
+  overflow:hidden;
+  padding:0;
+  margin:0;
+  border:1px solid #accfea;
+  background-color:#dce7f0;
+}
+
+.selector li {
+  font-size:0.8em;
+  line-height:1.2em;
+  float:left;
+}
+
+.selector li p {
+  color:#0066cc;
+  padding:.6em .9em .6em .9em;
+  margin-right:.6em;
+  background-color:#accfea;
+}
+
+.selector li a {
+  color:#6a80c1 !important;
+  display:block;
+  padding:.6em .9em .6em .9em;
+  margin-right:.6em;
+  text-decoration:none;
+  border-bottom-width:0px !important;  
+}
+
+.selector li a:hover {
+  color:#0066cc;
+  background-color:#eff4f7;
+}
+
+.selector li.selected a {
+  color:#4e556c !important;
+  text-decoration:none;
+  font-weight:bold;
+  background-color:#fff;
+}
+
+/* feed posts defs (general) */
+
+#Body .feedPost img {
+  height:60px;
+  margin:.8em 1em 0em 0.4em;
+  padding:.2em;
+  float:left;
+}
+
+#Body .feedPost {
+  margin:1em 0;
+  padding-bottom:1.2em;
+  border-bottom:2px solid #408cd9;
+  border-color:#cddeee;
+  overflow:hidden;
+}
+
+#Body .feedPost h2 {
+  color:#2e2e4d;
+  color:#663300;
+}
+
+#Body .feedPost p {
+  color:#525270;
+  margin:1.2em 0;
+  text-align:justify;
+  font-size:0.9em;
+  line-height:1.3em;
+}
+
+#Body .feedPost:hover {
+  background-color:#f9fbfd;
+}
+
+#Body .feedPost .feedInfo {
+  padding-top:.8em;
+}
+
+#Body .feedPost .feedRate {
+  float:right;
+  padding-top:.8em;
+  text-align:right;
+}
+
+#Body .feedPost .feedInfo li,
+#Body .feedPost .feedRate li {
+  float:left;
+  line-height:0.75em;
+  font-size:0.75em;
+  margin:0;
+}
+
+#Body .feedPost .feedInfo li p,
+#Body .feedPost .feedRate li p,
+#Body .feedPost .feedInfo li a,
+#Body .feedPost .feedRate li a {
+  margin:0 !important;
+}
+
+#Body .feedPost .feedInfo li p,
+#Body .feedPost .feedRate li p {
+
+}
+
+
+#Body .feedPost .feedInfo li a,
+#Body .feedPost .feedRate li a {
+  color:#5c6c9d;
+  color:#cc9933;
+  color:#cc6633;
+  text-decoration:none;
+  border-bottom:1px solid;
+}
+
+#Body .feedPost .feedInfo li a:hover {
+  text-decoration:none;
+  border-bottom-width:0px;
+}
+
+#Body .feedPost .feedInfo li {
+  margin:0 .4em 0 0;
+}
+
+#Body .feedPost .feedInfo li p {
+  color:#2e2e4d;
+  color:#cc9933;
+  color:#cc6633;
+  color:#663300;
+  line-height:1em;
+}
+
+#Body .feedPost .feedInfo li.feedPostType p {
+  padding-left:1em;
+  background:transparent url("../images/cad-v1b_smallDotSeparator.png") left center no-repeat;  
+}
+
+#Body .feedPost .feedInfo li p::last-child {
+  padding-right:0;
+}
+
+#Body .feedPost .feedRate li p {
+  color:#2e2e4d;
+  color:#663300;
+  padding-right:.6em;
+}
+
+#Body .feedPost .feedRate li p::after {
+  content:"";
+}
+
+#Body .feedPost .feedRate li.feedRateDown a {
+}
+
+#Body .feedPost .feedRate li.feedRateUp a {
+  padding-left:.6em;
+}
+
+#Body .feedPost .feedRate li.feedRateUp a,
+#Body .feedPost .feedRate li.feedRateDown a {
+  opacity:.5;
+  border-bottom-width:0px;
+}
+
+#Body .feedPost .feedRate li.feedRateUp a:hover,
+#Body .feedPost .feedRate li.feedRateDown a:hover {
+  opacity:1;
+}
+
+#Body .feedPost .feedRate li.feedRateUp span,
+#Body .feedPost .feedRate li.feedRateDown span {
+  color:#2e2e4d;
+  color:#663300;
+  line-height:1em;
+  padding-left:1em;
+  padding:.2em .4em;
+  border:1px solid #000000;
+
+  /* Do rounding (native in Safari, Firefox and Chrome) */
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+#Body .feedPost .feedRate li.feedRateUp span {
+  border-color:#157d1c;
+}
+#Body .feedPost .feedRate li.feedRateDown span {
+  border-color:#a03318;
+}
+
+#Body .feedPost .feedRate li.feedRateUp a:hover span {
+  color:#fff;
+  background-color:#1ed02b;
+}
+#Body .feedPost .feedRate li.feedRateDown a:hover span {
+  color:#fff;
+  background-color:#ff3300;
+}
+#Body .feedTwitter img {
+  height:60px;
+  margin:.8em 1em 0em .4em;
+  padding:.2em;
+  float:left;
+}
+
+#Body .feedTwitter p,
+#Body .feedTwitter h2 {
+  margin-left:80px;
+}
+
+/* footer definitions */
+
+#Footer {
+  width:100%;
+  clear:both;
+  color:#e5e9f5;
+  font-size:.75em;
+  border-top:4px solid #5c6c9d;
+  background-color:#9faedb;
+}
+
+#Footer p {
+  display:block;
+  padding:2em 1em;
+}
+
+#Footer p a {
+  color:#ffffff;
+}
+
+#Footer p a:hover {
+  text-decoration:none;
+}

@@ -1,0 +1,6 @@
+<div id="Body" class="pageRegister">
+  <div id="ColOne">
+    <h1>Register</h1>
+    <?php echo $this->form; ?>
+  </div>
+</div>

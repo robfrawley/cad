@@ -86,6 +86,11 @@ define('DIR_VIEWS', DIR_APPLICATION . 'views' . DIR_SEP);
 define('DIR_VIEWS_FORM', DIR_VIEWS . '_form' . DIR_SEP);
 
 /**
+ * internal views folder
+ */
+define('DIR_VIEWS_INTERNAL', DIR_VIEWS . '_internal' . DIR_SEP);
+
+/**
  * web data directory
  */
 define('DIR_DATA', DIR_BASE . 'data' . DIR_SEP);
@@ -114,6 +119,8 @@ define('DIR_PUBLIC_HTML', DIR_BASE . 'htdocs' . DIR_SEP);
  * web directory seperator
  */
 define('WEB_SEP', '/');
+
+define('WEB_DOMAIN', 'http://creativeartsguide.com');
 
 /**
  * web root path

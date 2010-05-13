@@ -38,7 +38,7 @@ class FormRestrictionEmail extends FormRestrictionPregMatch {
 	 * @param string $message
 	 */
 	public function __construct() {
-		parent::__construct('/^[A-z0-9_+\-]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{2,4}$/', 'You must enter a valid e-mail address.');
+		parent::__construct('/^[A-z0-9_+.\-]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{2,4}$/', 'You must enter a valid e-mail address.');
 	}
 }
 ?>

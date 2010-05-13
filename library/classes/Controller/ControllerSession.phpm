@@ -1,0 +1,45 @@
+<?php
+class ControllerSession extends ControllerBase {
+
+  public function requireAuth() {
+    
+    if(!isset($_SESSION['auth'])) {
+      return $_SESSION['auth'];
+    } else {
+      return false;
+    }
+    
+  }
+
+  /**
+   * function is run before action function
+   * @override
+   */
+  public function actionPre() {
+    
+    $this->_getOrCreateSession();
+    
+    /* call parent actionPre function */
+    parent::actionPre();
+    
+  }
+  
+  protected function _getOrCreateSession() {
+
+    if(!isset($_SESSION)) {
+      session_start();
+    }
+    
+    if (ini_get('register_globals'))
+    {
+        foreach ($_SESSION as $key=>$value)
+        {
+            if (isset($GLOBALS[$key]))
+                unset($GLOBALS[$key]);
+        }
+    }
+    
+  }
+
+}
+?>

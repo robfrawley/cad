@@ -108,6 +108,16 @@ class Form extends FormAbstract {
 	}
 
 	/**
+	 * recompile regardless of previouse compile and return item data
+	 * @return string
+	 */
+	public function fetchNew() {
+		$this->_compiled = false;
+		$this->ok();
+		return $this->get();
+	}
+
+	/**
 	 * validate that the form was submitted with no errors
 	 * @return bool
 	 */

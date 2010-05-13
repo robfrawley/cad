@@ -1,0 +1,6 @@
+<div id="Body" class="pageLogon">
+  <div id="ColOne">
+    <h1>Logout</h1>
+    <?php echo $this->msg; ?>
+  </div>
+</div>

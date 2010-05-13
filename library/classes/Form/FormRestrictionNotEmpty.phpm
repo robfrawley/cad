@@ -32,12 +32,19 @@
  * @subpackage moin-library
  */
 class FormRestrictionNotEmpty extends FormRestrictionMinLength {
+
 	/**
 	 * constructor
 	 * @param string $length
 	 */
-	public function __construct() {
-  	parent::__construct(1, 'This field is required and cannot be blank.');
+	public function __construct($message = false) {
+
+	    if($message === false)
+	    {
+	        $message = 'This field is required and cannot be blank.';
+	    }
+
+  	    parent::__construct(1, $message);
 	}
 }
 ?>

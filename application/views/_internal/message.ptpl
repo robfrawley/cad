@@ -1,0 +1,6 @@
+<div class="htmlMessage <?=$this->classes?>">
+    <div>
+        <h3><?=$this->header?></h3>
+        <p><?=$this->message?></p>
+    </div>
+</div>

@@ -158,15 +158,6 @@ abstract class FormAbstract {
 	}
 
 	/**
-	 * recompile regardless of previouse compile and return item data
-	 * @return string
-	 */
-	public function getNew() {
-		$this->_compiled = true;
-		return $this->_compiled_data;
-	}
-
-	/**
 	 * attaches sub item to current item
 	 * @param FormAbstract $object
 	 * @return void

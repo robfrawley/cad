@@ -14,7 +14,7 @@ body {
   color:#000000;
   font-family:Tahoma, Arial, sans-serif;
   text-align:center;
-  background:#ffffff url("../images/cad-v1d_hdrBg.png") top repeat-x;
+  background:#ffffff url("../images/cad-v1e_hdrBg.png") top repeat-x;
 }
 
 /* header def */
@@ -25,7 +25,7 @@ body {
   height:158px;
   text-align:left;
 }
-
+.
 #Header_Logo h1, #Header_Logo h2 {
   position:absolute;
   left:-999px;
@@ -33,9 +33,9 @@ body {
 
 #Header_Logo {
   float:left;
-  height:156px;
-  width:234px;
-  background:#ffffff url("../images/cad-v1d_hdrLogo.png") top left no-repeat;
+  height:148px;
+  width:400px;
+  background:transparent url("../images/cad-v1h_hdrLogo.png") top left no-repeat;
 }
 
 /* header user account navigation */
@@ -101,14 +101,14 @@ body {
 #Main_Nav ul li a {
   color:#626d92;
   font-size:1em;
+  line-heigh:1em;
   text-shadow: 1px 1px 1px #ffffff;
-  padding:.3em .8em;
-  padding-bottom:5px;
+  padding:5px .8em;
   text-decoration:none;
 
   border:2px solid #bfc9e1;
   border-bottom-width:0px;  
-  background-color:#ffffff;
+  background-color:#f6f9fc;
   
   /* Do rounding (native in Safari, Firefox and Chrome) */
   -moz-border-radius-topright:3px;
@@ -120,14 +120,14 @@ body {
 #Main_Nav ul li a:hover {
   color:#4e556c;
   color:#000;
+  background-color:#ffffff;
 }
 
 #Main_Nav ul li.selected a {
   color:#4e556c;
-  padding-bottom:.45em;
   text-shadow: 1px 1px 0px #eceef6;
   border-color:#0066cc;
-
+  padding-bottom:7px;
   background-color:#ffffff;
 }
 
@@ -156,13 +156,24 @@ body {
   color:#ff9900;
   color:#663300;
   color:#006699;
-  margin:.6em 0;
+  margin:.6em 0 1.0em 0;
   line-height:1.4em;
   font-size:1.2em;  
 }
 
 #Body p {
 
+}
+
+#Body a {
+  color:#663300;
+  text-decoration:none;
+  border-bottom:1px solid;
+}
+
+#Body a:hover,
+#Body a:focus {
+  border-bottom-width:0px;
 }
 
 /* columb definitions */
@@ -176,7 +187,7 @@ body {
 #ColTwo_Small {
   float:left;
   width:290px;
-  margin:.6em 0 1.4em 2.2em;
+  margin:1.0em 0 1.4em 2.2em;
 }
 
 /* horozontal selector */
@@ -194,21 +205,22 @@ body {
 
 .selector li {
   font-size:0.8em;
+  line-height:1.2em;
   float:left;
   padding:.4em .4em;
 }
 
 .selector li p {
   color:#6a80c1;
-  padding:.2em .2em .2em .6em;
+  padding:.3em .3em .3em .6em;
 }
 
 .selector li a {
-  color:#0066cc;
+  color:#0066cc !important;
   display:block;
-  padding:.2em .6em;
+  padding:.2em .6em .3em .6em;
   text-decoration:none;
-  
+  border-bottom-width:0px !important;  
   /* Do rounding (native in Safari, Firefox and Chrome) */
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -216,21 +228,31 @@ body {
 
 .selector li a:hover {
   color:#0066cc;
+  color:#ffffff !important;
   background-color:#eff4f7;
+  background-color:#6a80c1;
 }
 
 .selector li.selected a {
-  color:#4e556c;
+  color:#4e556c !important;
   text-decoration:none;
   background-color:#ffffff;
 }
 
 /* feed posts defs (general) */
 
+#Body .feedPost img {
+  height:60px;
+  margin:.8em 1em 0em 0.4em;
+  padding:.2em;
+  float:left;
+}
+
 #Body .feedPost {
   margin:1em 0;
-  padding-bottom:1.6em;
-  border-bottom:2px solid #accfea;
+  padding-bottom:1.2em;
+  border-bottom:2px solid #408cd9;
+  border-color:#cddeee;
   overflow:hidden;
 }
 
@@ -241,17 +263,23 @@ body {
 
 #Body .feedPost p {
   color:#525270;
-  margin:1em 0;
+  margin:1.2em 0;
   text-align:justify;
   font-size:0.9em;
-  line-height:1.2em;
+  line-height:1.3em;
+}
+
+#Body .feedPost:hover {
+  background-color:#f9fbfd;
 }
 
 #Body .feedPost .feedInfo {
+  padding-top:.8em;
 }
 
 #Body .feedPost .feedRate {
   float:right;
+  padding-top:.8em;
   text-align:right;
 }
 
@@ -282,10 +310,12 @@ body {
   color:#cc9933;
   color:#cc6633;
   text-decoration:none;
+  border-bottom:1px solid;
 }
 
 #Body .feedPost .feedInfo li a:hover {
-  text-decoration:underline;
+  text-decoration:none;
+  border-bottom-width:0px;
 }
 
 #Body .feedPost .feedInfo li {
@@ -298,8 +328,15 @@ body {
   color:#cc6633;
   color:#663300;
   line-height:1em;
+}
+
+#Body .feedPost .feedInfo li.feedPostType p {
   padding-left:1em;
-  background:transparent url("../images/cad-v1b_smallDotSeparator.png") left center no-repeat;
+  background:transparent url("../images/cad-v1b_smallDotSeparator.png") left center no-repeat;  
+}
+
+#Body .feedPost .feedInfo li p::last-child {
+  padding-right:0;
 }
 
 #Body .feedPost .feedRate li p {
@@ -322,11 +359,12 @@ body {
 #Body .feedPost .feedRate li.feedRateUp a,
 #Body .feedPost .feedRate li.feedRateDown a {
   opacity:.5;
+  border-bottom-width:0px;
 }
 
 #Body .feedPost .feedRate li.feedRateUp a:hover,
 #Body .feedPost .feedRate li.feedRateDown a:hover {
-  opacity:1.0;
+  opacity:1;
 }
 
 #Body .feedPost .feedRate li.feedRateUp span,
@@ -336,7 +374,7 @@ body {
   line-height:1em;
   padding-left:1em;
   padding:.2em .4em;
-  border:2px solid red;
+  border:1px solid #000000;
   
   /* Do rounding (native in Safari, Firefox and Chrome) */
   -webkit-border-radius: 3px;
@@ -344,10 +382,30 @@ body {
 }
 
 #Body .feedPost .feedRate li.feedRateUp span {
-  border-color:green;
+  border-color:#157d1c;
 }
 #Body .feedPost .feedRate li.feedRateDown span {
-  border-color:red;
+  border-color:#a03318;
+}
+
+#Body .feedPost .feedRate li.feedRateUp a:hover span {
+  color:#fff;
+  background-color:#1ed02b;
+}
+#Body .feedPost .feedRate li.feedRateDown a:hover span {
+  color:#fff;
+  background-color:#ff3300;
+}
+#Body .feedTwitter img {
+  height:60px;
+  margin:.8em 1em 0em .4em;
+  padding:.2em;
+  float:left;
+}
+
+#Body .feedTwitter p,
+#Body .feedTwitter h2 {
+  margin-left:80px;
 }
 
 /* main new channel specific */
@@ -359,9 +417,9 @@ body {
 /* boxed content */
 
 .boxedContent {
-  margin:1em 0em;
+  margin:1em 0em 1.6em 0;
   padding:.6em 0;
-  border:1px solid #e6eaf4;
+  border:2px solid #cddeee;
   background-color:#fcfcfd;
   
   /* Do rounding (native in Safari, Firefox and Chrome) */
@@ -371,7 +429,7 @@ body {
 
 .boxedContent:hover {
   border-color:#9aa5c4;
-  background-color:#fcfcfd;
+  background-color:#f7f9fb;
 }
 
 /* boxed content quote box */
@@ -392,10 +450,14 @@ body {
 }
 
 .bCQuote blockquote p {
+  color:#525270;
   display:inline;
+  font-size:0.9em;
+  line-height:1.2em;
 }
 
 .bCQuote cite {
+  color:#525270;
   float:right;
   font-style:italic;
   font-size:1.0em;
@@ -416,10 +478,12 @@ body {
   color:#663300;
   color:#cc6633;
   font-size:.8em;
+  text-decoration:none;
+  border-bottom:1px solid;
 }
 
 .bCQuote p.refLink a:hover {
-  text-decoration:none;
+  border-bottom-width:0px;
 }
 
 /* boxed content twitter feed */
@@ -430,16 +494,30 @@ body {
 }
 
 .bCFeedTwitter ul {
-  padding:0 .6em 0 .6em;
+  padding:1.2em 1em 0.4em 1em;
   font-size:0.75em;
 }
 
 .bCFeedTwitter ul li {
-  padding:.6em .6em;
+  padding:1em 1.4em;
+  border:1px solid #9aa5c4;
+  border-bottom-width:0px;
+}
+
+.bCFeedTwitter ul li:last-child {
+  border-bottom:1px solid #9aa5c4;;
 }
 
 .bCFeedTwitter ul li.listItemOdd {
-  background:#f6f7fb;
+  background-color:#faf7f5;
+}
+
+.bCFeedTwitter ul li.listItemEven {
+  background-color:#f3f6f9;
+}
+
+.bCFeedTwitter ul li:hover {
+  background-color:#ffffff;
 }
 
 .bCFeedTwitter ul li cite {
@@ -450,15 +528,16 @@ body {
   color:#663300;
 
   font-style:normal;
-  font-size:1em;
-  line-height:1.3em;
+  font-size:0.9em;
+  line-height:1.0em;
 }
 
 .bCFeedTwitter ul li p {
+  color:#525270;
   margin:0.6em 0;
   text-align:left;
-  font-size:1em;
-  line-height:1.3em;
+  font-size:0.9em;
+  line-height:1.4em;
 }
 
 .bCFeedTwitter ul li p a {

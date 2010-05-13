@@ -1,0 +1,135 @@
+<?php
+/**
+ * Moin
+ * @package moin-base
+ *
+ * @author Rob Frawley <code AT robfrawley DOT com>
+ * @license GNU Public License <http://www.gnu.org/licenses/gpl.txt>
+ *
+ * @version $Id: FormInput.phpm 168 2007-10-07 03:01:46Z rmf $
+ */
+
+/**#@+
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; only version 2
+ * of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/**
+ * form input element
+ *
+ * @package moin-base
+ * @subpackage moin-library
+ */
+class FormNote extends FormElements {
+  /**
+   * defines the internal value of positioning the note in the normal
+   * document flow
+   */
+  const POSITIONNORMAL = 'normal';
+
+  /**
+   * defines the internal value for positioning the note to the right of the
+   * normal document flow
+   */
+  const POSITIONRIGHT = 'right';
+  
+  /**
+   * section titles for note
+   */
+  protected $_noteSectionTitle = array();
+  
+  /**
+   * sections for note, array keys are converted to titles (dashes "-" are
+   * removed and replaced with spaces " "), and array content (also an array) 
+   * are paragraphs
+   * $_noteSections = array('section-title' => array('paragraph 1', 'p2'))
+   */
+  protected $_noteSectionContent = array();
+  
+  /**
+   * note placement determins what class is output in the div class field
+   * available options are 'normal' where the note is placed in the normal flow
+   * of content or 'right' where the note is floated right and constrained to 
+   * a small width
+   */
+  protected $_notePosition;
+  
+	/**
+	 * constructor for input element
+	 * @param string $title
+	 * @param string $name
+	 * @param string $type
+	 * @return void
+	 */
+	public function __construct($name, $position = false) {
+	  $this->setName($name);
+		if($position === false) $position = self::POSITIONNORMAL;
+		$this->setNotePosition($position);
+	}
+	
+	/**
+	 * sets note position class variable
+	 * @param string $placement
+	 * @return void
+	 */
+	public function setNotePosition($position) {
+	  $this->_notePosition = $position;
+	}
+
+	/**
+	 * gets the position of the note
+	 * @return string
+	 */
+	public function getNotePosition() {
+	  return $this->_notePosition;
+	}
+	
+	/**
+	 * sets one section of the note and does not override previous values
+	 * @param string $title
+	 * @param string $section
+	 * @return void 
+	 */
+	public function addSection($title, $section) {
+	  if($title === false || empty($title)) {
+	    $title = false;
+	  }
+    $this->_noteSectionTitle[] = $title;
+    $this->_noteSectionContent[] = $section;
+	}
+
+	/**
+	 * compile form element from template with class values
+	 * @return void
+	 */
+	protected function _compile() {
+    $position = $this->getNotePosition();
+    $positionClass = 'formNote'.ucwords($position);
+
+		$Template = new Template(array(
+      'template_paths' => array(
+        DIR_VIEWS_FORM
+      ),
+      'template_filenames' => array(
+        '_form-note' . FILE_EXT_TPL
+      )
+    ));
+    $Template->notePosition = $positionClass;
+    $Template->noteTitle = $this->_noteSectionTitle;
+    $Template->noteContent = $this->_noteSectionContent;
+		$this->_setTemplateError($Template);
+		$this->_compiled_data = $Template->fetch();
+	}
+}
+?>

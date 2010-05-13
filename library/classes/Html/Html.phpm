@@ -1,0 +1,48 @@
+<?php
+
+class Html
+{
+  protected $_templateCompiled = false;
+  
+  protected $_templateFilename = 'empty';
+  
+  public function __construct($filename)
+  {
+    $this->setTemplateFilename($filename);
+  }
+  
+  public function setTemplateFilename($filename)
+  {
+    $this->_templateFilename = $filename;
+  }
+  
+  public function getTemplateFilename()
+  {
+    return $this->_templateFilename;
+  }
+  
+  public function fetch()
+  {
+    $this->_compile();
+    return $this->_compiledData;
+  }
+  
+  protected function _compile()
+  {
+      $this->_templateCompiled = true;
+    
+    	$Template = new Template(array(
+        'template_paths' => array(
+          DIR_VIEWS_INTERNAL
+        ),
+        'template_filenames' => array(
+          $this->getTemplateFilename() . FILE_EXT_TPL
+        )
+      ));
+      
+  		$this->_compiledData = $Template->fetch();
+  }
+  
+}
+
+?>

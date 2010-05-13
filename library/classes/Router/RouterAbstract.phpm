@@ -233,7 +233,7 @@ abstract class RouterAbstract implements RouterInterface
    * @param integer $integer
    * @return string|bool
    */
-  public function getArgumentByInt($integer)
+  public function getArgumentById($integer)
   {
     if(array_key_exists($integer, $this->_arguments_enumerated))
     {
